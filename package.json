@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/Linnterweb/MEANies/issues"
   },
-  "homepage": "https://github.com/Linnterweb/MEANies#readme"
+  "homepage": "https://github.com/Linnterweb/MEANies#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "mysql": "^2.11.1",
+    "prerender": "^4.3.1",
+    "prerender-node": "^2.5.0"
+  }
 }

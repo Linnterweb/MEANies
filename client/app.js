@@ -1,4 +1,4 @@
-angular.module("MEANies", ["ngRoute", "ngResource", "MEANies.controllers"])
+angular.module("MEANies", ["ngRoute", "ngResource", "MEANies.controllers", "MEANies.factories"])
 
 .config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
@@ -8,14 +8,22 @@ angular.module("MEANies", ["ngRoute", "ngResource", "MEANies.controllers"])
         templateUrl: "views/welcome.html",
         controller: "WecomeController"
     })
+
     .when("/board", {
         templateUrl: "views/board.html",
         controller: "BoardController"
     })
-    // .when("/bugs", {
-    //     templateUrl: "views/bugs.html",
-    //     controller: "BugsController"
-    // })
+  
+
+    .when("/questions", {
+        templateUrl: "views/questions.html",
+        controller: "QuestionsController"
+    })
+    .when("/questions/:id", {
+        templateUrl: "views/question.html",
+        controller: "QuestionController"
+    })
+
     .otherwise({
         redirectTo: "/"
     });

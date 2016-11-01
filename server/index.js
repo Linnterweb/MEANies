@@ -3,8 +3,12 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var prerender = require('prerender-node');
-var api = require('./api');
+
+ var api = require('./api');
+// var configurePassport = require('./config/passport');
+
 var configurePassport = require('./config/passport');
+
 
 var clientPath = path.join(__dirname, '../client');
 

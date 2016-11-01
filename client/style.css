@@ -1,3 +1,8 @@
+
+.question {
+    width: 50px;
+}
+
 img {
     position: relative;
     left: 0;
@@ -11,4 +16,5 @@ img {
     position: absolute;
     left: 250px;
     border-radius: 10px;
+
 }

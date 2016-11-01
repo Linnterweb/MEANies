@@ -1,0 +1,26 @@
+#box {
+    width: 800px;
+    height: 500px;
+    border: red solid 4px;
+    background-color: tan;
+    position: relative;
+}
+.picdiv {
+    width: 800px;
+    height: 500px;
+}
+.newbox {
+    width: 90%;
+    height: 60%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    position: absolute;
+    top: 25px;
+    left: 50px;
+}
+.dialogue {
+    text-align: center;
+    color: ghostwhite;
+    font-family: Verdana;
+    font-weight: bold;
+}

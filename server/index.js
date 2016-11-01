@@ -3,8 +3,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var prerender = require('prerender-node');
-// var api = require('./api');
-// var configurePassport = require('./config/passport');
+var api = require('./api');
+var configurePassport = require('./config/passport');
 
 var clientPath = path.join(__dirname, '../client');
 
@@ -17,9 +17,9 @@ app.use(express.static(clientPath));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-// configurePassport(app);
+configurePassport(app);
 
-// app.use('/api', api);
+app.use('/api', api);
 
 app.get('*', function(req, res, next) {
     if (isAsset(req.url)) {

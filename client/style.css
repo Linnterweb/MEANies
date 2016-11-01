@@ -1,0 +1,14 @@
+img {
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+.wall {
+    height: 300px;
+    width: 50px;
+    background-color: lightblue;
+    position: absolute;
+    left: 250px;
+    border-radius: 10px;
+}

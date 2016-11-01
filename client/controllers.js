@@ -74,4 +74,10 @@ angular.module("MEANies.controllers", [])
   
 }])
 
+.controller ("LoginController", ["$scope", "Question", "$location", "$routeParams", "User", function($scope, Question, $location, $routeParams, User) {
+
+}])
+   
+
+
 

@@ -13,7 +13,10 @@ angular.module("MEANies", ["ngRoute", "ngResource", "MEANies.controllers", "MEAN
         templateUrl: "views/board.html",
         controller: "BoardController"
     })
-  
+    .when("/login", {
+        templateUrl: "views/login.html",
+        controller: "LoginController"
+    })
 
     .when("/questions", {
         templateUrl: "views/questions.html",

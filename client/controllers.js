@@ -8,9 +8,6 @@ angular.module("MEANies.controllers", [])
     //  });   
 }])
 
-// .controller("BugsController", ["$scope", function($scope) {
-//     $scope.regions = ["La Selva", "Louisiana", "Andes"];//to make this be a hyperlink it needs a database?
-// }])
 .controller('BoardController', ['$scope', '$location', function($scope, $location) {
 
     $scope.detailMode = false; // start off NOT showing details anywhere on the page

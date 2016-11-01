@@ -9,6 +9,7 @@ angular.module("MEANies", ["ngRoute", "ngResource", "MEANies.controllers", "MEAN
         controller: "WecomeController"
     })
 
+
     .when("/board", {
         templateUrl: "views/board.html",
         controller: "BoardController"
@@ -26,8 +27,7 @@ angular.module("MEANies", ["ngRoute", "ngResource", "MEANies.controllers", "MEAN
         templateUrl: "views/question.html",
         controller: "QuestionController"
     })
-
     .otherwise({
         redirectTo: "/"
-    });
+    })
 }]);

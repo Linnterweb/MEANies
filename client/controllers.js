@@ -45,6 +45,7 @@ angular.module("MEANies.controllers", [])
                 }
             })
         }
+        }])
 .controller("QuestionsController", ["$scope", "Question", function($scope, Question) {
     $scope.query = function() {
         var answer = prompt($scope.question);

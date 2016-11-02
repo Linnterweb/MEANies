@@ -16,5 +16,11 @@ img {
     position: absolute;
     left: 550px;
     border-radius: 10px;
+}
 
+.black {
+    position: absolute;
+    background-color: black;
+    height: 20px;
+    width: 20px;
 }

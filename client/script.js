@@ -30,16 +30,16 @@ $(document).ready(function() {
 
 		$('.mario')
 		.animate({
-			top: 1300 + '%',
+			top: 68 + '%',
 		})
 		.animate({
-			left: 330
+			left: 23 + '%',
 		})
 		.animate({
-			top: -120
+			top: 36 + '%',
 		})
 		.animate({
-			left: 470
+			left: 34 +'%',
 		})
 		.animate({
 			top: percentTop + '%',

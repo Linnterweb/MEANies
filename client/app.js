@@ -8,8 +8,9 @@ angular.module("MEANies", ["ngRoute", "ngResource", "MEANies.controllers", "MEAN
         templateUrl: "views/welcome.html",
         controller: "WecomeController"
     })
-
-
+    .when("/mario", {
+        templateUrl: "views/mario.html"
+    })
     .when("/board", {
         templateUrl: "views/board.html",
         controller: "BoardController"

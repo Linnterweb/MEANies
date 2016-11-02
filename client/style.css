@@ -1,20 +1,105 @@
+@import url('http://getbootstrap.com/2.3.2/assets/css/bootstrap.css');
+@import url('http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css');
 
 .question {
     width: 50px;
 }
 
-img {
-    position: relative;
-    left: 0;
-    top: 0;
+.mario {
+    position: absolute;
+    top: 76%;
+    left: 13.75%;
+    height: 20px;
+    max-height: 2%;
+    z-index: 2;
 }
 
-.wall {
-    height: 300px;
+#map {
+    position:relative;
+    display: inline;
+}
+
+.container {
+    background: #f3f3f3;
+}
+
+#counter {
+    position: relative;
+    /*display: inline;*/
+    /*width: auto;
+    height: auto;*/
+}
+
+#dot {
+    position:absolute;
+    left:33.5%;
+    top:43%;
+    height: 15px;
+    max-height: 2%;
+    max-width: 2%;
+    z-index: 1;
+}
+
+/*#circ1 {
+    position: absolute;
+    left: 300px;
+    top: 100px;
+    max-width: 10%;
+}
+
+.path {
+    height: 50px;
     width: 50px;
     background-color: lightblue;
-    position: absolute;
-    left: 550px;
+    position: relative;
+    top: 300px;
+    left: 450px;
     border-radius: 10px;
-
 }
+
+.path2 {
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    position: absolute;
+    top: 450px;
+    left: 350px;
+    border-radius: 10px;
+}
+
+.path3 {
+    height: 50px;
+    width: 50px;
+    background-color: orange;
+    position: absolute;
+    top: 375px;
+    left: 250px;
+    border-radius: 10px;
+}
+
+.path4 {
+    height: 50px;
+    width: 50px;
+    background-color: green;
+    position: absolute;
+    left: 150px;
+    border-radius: 10px;
+}*/
+
+/*.wall {
+    background-image: url("map/map1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 1000px;
+    width: 1000px;
+}
+
+.wall img {
+    background-image: url("map/map1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto;
+    max-width: 100%;
+    display: block;
+}*/
+

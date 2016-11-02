@@ -4,9 +4,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var prerender = require('prerender-node');
 
- var api = require('./api');
-// var configurePassport = require('./config/passport');
-
+var api = require('./api');
 var configurePassport = require('./config/passport');
 
 

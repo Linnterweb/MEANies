@@ -6,8 +6,8 @@
     position: relative;
 }
 .picdiv {
-    width: 800px;
-    height: 500px;
+    width: 1000px;
+    height: 600px;
 }
 .newbox {
     width: 90%;
@@ -23,4 +23,54 @@
     color: ghostwhite;
     font-family: Verdana;
     font-weight: bold;
+}
+.battle {
+    color: white;
+    text-align: center;
+}
+.inquiry {
+    color: white;
+    border: white solid 3px;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+.answer {
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: 25px;
+}
+#attackone {
+    width: 3%;
+    height: 6%;
+    background-color: tan;
+    border: darkgoldenrod solid 4px;
+    border-radius: 50px;
+    position: absolute;
+    top: 140px;
+    left: 170px;
+}
+#attacktwo {
+    width: 3%;
+    height: 6%;
+    background-color: tan;
+    border: darkgoldenrod solid 4px;
+    border-radius: 50px;
+    position: absolute;
+    
+    
+}
+#attackthree {
+    width: 3%;
+    height: 6%;
+    background-color: tan;
+    border: darkgoldenrod solid 4px;
+    border-radius: 50px;
+    position: absolute;
+    top: 140px;
+    left: 300px;
+}
+.question {
+    margin-left: 30px;
 }

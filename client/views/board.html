@@ -1,13 +1,49 @@
 <div id="gamebackground">
+    
     <div id="box">
       <div>
-          <img src='board.jpeg' class="picdiv" ng-click="toggleDetails()">
+
+          <img src='views/images/map1.png' class="picdiv" ng-click="toggleDetails()">
+
+          <div>
+            <div ng-repeat="question in questions">
+                    <!--<h1>{{ question.question }}</h1>-->
+                <div id="attacktwo" ng-style="{ 'left': question.Xcoord + 'px', 'top': question.Ycoord + 'px' }" ng-click="toggleDetails()">
+                </div>
+            </div>
+            <!--<div id="attacktwo" ng-click="toggleDetails()"></div>
+            <div id="attackone" ng-click="toggleDetails()"></div>   
+            <div id="attackthree" ng-click="toggleDetails()"></div>-->
+           
+                 
+                 
+         </div>
+
       </div>
-        <div class="newbox" ng-show="this.showingDetails" ng-click="toggleDetails()">
-            <!--<div class="battleinfo" ng-click="toggleDetails()">-->
-                <p class="dialogue">Here is a question: Why?</a>              
-        </div> 
-        </div>
+            <img class="mario" src="http://i1061.photobucket.com/albums/t480/ericqweinstein/mario.jpg"/> 
+
+            
+                <div class="newbox" ng-show="showingDetails" ng-click="toggleDetails()">
+                    
+                    <div>
+                        <h1 class='battle'>{{ question.question }}</h1>
+                        <div class='inquiry'>
+                            <ol type="A">
+                                <li>{{ question.A }}</li>
+                                <li>{{ question.B }}</li>
+                                <li>{{ question.C }}</li>
+                                <li>{{ question.D }}</li>
+                            </ol>
+                            <!--<input type="text" class="answer" placeholder="answer" autofocus>-->
+                            <div class="question" ng-mouseover="query()">HOVER TO ATTACK</div>
+                        </div>
+                        
+                    </div>            
+                </div> 
+            <!--</button>-->
+            
+
+        
     </div>
 </div>
 

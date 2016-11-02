@@ -77,29 +77,10 @@
     border-radius: 10px;
 }
 
-.path4 {
-    height: 50px;
-    width: 50px;
-    background-color: green;
+.black {
     position: absolute;
-    left: 150px;
-    border-radius: 10px;
-}*/
-
-/*.wall {
-    background-image: url("map/map1.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 1000px;
-    width: 1000px;
+    background-color: black;
+    height: 20px;
+    width: 20px;
 }
-
-.wall img {
-    background-image: url("map/map1.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: auto;
-    max-width: 100%;
-    display: block;
-}*/
 

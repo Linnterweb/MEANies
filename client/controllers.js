@@ -39,8 +39,10 @@ angular.module("MEANies.controllers", [])
                 console.log(question.answer);
                 console.log($location.search());
 
+
                 $scope.query = function () {
                     var answer = prompt("What'll it be pardner?");
+
 
                     if (answer === question.answer) {
                         var user = User.get({ id: quest }, function (user) {
@@ -114,5 +116,11 @@ angular.module("MEANies.controllers", [])
         //get logged in "me" and use their id to update them.
 
     }])
+
+.controller ("LoginController", ["$scope", "Question", "$location", "$routeParams", "User", function($scope, Question, $location, $routeParams, User) {
+
+}])
+   
+
 
 

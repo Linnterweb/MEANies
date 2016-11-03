@@ -15,7 +15,7 @@
           <div>
             <div ng-repeat="question in questions">
                     <!--<h1>{{ question.question }}</h1>-->
-                <div id="attacktwo" class="dot" ng-style="{ 'left': question.Xcoord + 'px', 'top': question.Ycoord + 'px' }" ng-click="toggleDetails()">
+                <div id="{{ question.id }}" class="attacktwo dot" ng-style="{ 'left': question.Xcoord + '%', 'top': question.Ycoord + '%' }" ng-click="circleClicked($event)">
                 </div>
             </div>
             <!--<div id="attacktwo" ng-click="toggleDetails()"></div>

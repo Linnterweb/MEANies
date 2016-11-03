@@ -23,6 +23,10 @@ angular.module("MEANies", ["ngRoute", "ngResource", "MEANies.controllers", "MEAN
         templateUrl: "views/create_user.html",
         controller: "UserCreateController"
     })
+    .when("/mongo_boss", {
+        templateUrl: "views/mongo_boss.html",
+        controller: "MongoBossController"
+    })
     .when("/questions", {
         templateUrl: "views/questions.html",
         controller: "QuestionsController"

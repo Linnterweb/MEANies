@@ -1,5 +1,7 @@
 @import url('http://getbootstrap.com/2.3.2/assets/css/bootstrap.css');
 @import url('http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css');
+@import url('http://fonts.googleapis.com/css?family=Roboto:400');
+
 
 .question {
     width: 50px;
@@ -19,10 +21,6 @@
     display: inline;
 }
 
-.container {
-    background: #f3f3f3;
-}
-
 #counter {
     position: relative;
     /*display: inline;*/
@@ -40,42 +38,47 @@
     z-index: 1;
 }
 
-/*#circ1 {
-    position: absolute;
-    left: 300px;
-    top: 100px;
-    max-width: 10%;
+/*Login Page Styling Start*/
+
+body {
+  background-color:#fff;
+  -webkit-font-smoothing: antialiased;
+  font: normal 14px Roboto,arial,sans-serif;
 }
 
-.path {
-    height: 50px;
-    width: 50px;
-    background-color: lightblue;
-    position: relative;
-    top: 300px;
-    left: 450px;
+.login-container {
+    padding: 25px;
+    position: fixed;
+}
+
+.form-login {
+    background-color: #EDEDED;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+}
+
+h4 { 
+ border:0 solid #fff; 
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ text-align: center;
+}
+
+.form-control {
     border-radius: 10px;
 }
 
-.path2 {
-    height: 50px;
-    width: 50px;
-    background-color: black;
-    position: absolute;
-    top: 450px;
-    left: 350px;
-    border-radius: 10px;
+.wrapper {
+    text-align: center;
 }
 
-.path3 {
-    height: 50px;
-    width: 50px;
-    background-color: orange;
-    position: absolute;
-    top: 375px;
-    left: 250px;
-    border-radius: 10px;
-}*/
+/*Login Page Styling End*/
 
 .black {
     position: absolute;

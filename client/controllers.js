@@ -27,18 +27,18 @@ angular.module("MEANies.controllers", [])
                 console.log(position);
 
                 $('.mario')
-                .animate({
-                    top: 68 + '%',
-                })
-                .animate({
-                    left: 23 + '%',
-                })
-                .animate({
-                    top: 36 + '%',
-                })
-                .animate({
-                    left: 34 +'%',
-                })
+                // .animate({
+                //     top: 68 + '%',
+                // })
+                // .animate({
+                //     left: 23 + '%',
+                // })
+                // .animate({
+                //     top: 36 + '%',
+                // })
+                // .animate({
+                //     left: 34 +'%',
+                // })
                 .animate({
                     top: percentTop + '%',
                     left: percentLeft + '%'
@@ -46,6 +46,7 @@ angular.module("MEANies.controllers", [])
             } else {
                 alert('You cannot answer that question yet!');
             }
+
         }
         $scope.toggleDetails = function () {
             console.log('inside toggle details');
@@ -102,7 +103,7 @@ angular.module("MEANies.controllers", [])
         $scope.question = Question.query();
     }])
 
-    .controller("QuestionController", ["$scope", "Question", "$location", "$routeParams", "User", function ($scope, Question, $location, $routeParams, User) {
+    .controller("QuestionController", ["$scope", "Question", "$location", "$routeParams", "User", "UserService", function ($scope, Question, $location, $routeParams, User, UserService) {
         $scope.question = Question.get({ id: $routeParams.id });
         var question = Question.get({ id: $routeParams.id }, function (question) {
             console.log(question.answer);
@@ -125,7 +126,7 @@ angular.module("MEANies.controllers", [])
                     window.location.assign("/questions/" + newId);
                 } else {
                     console.log("WRONG!!!")
-                    alert("you have brought shame on your family. try again")
+                    alert("You have brought shame on your family. try again")
                 };
             };
         });
@@ -171,3 +172,19 @@ angular.module("MEANies.controllers", [])
             });
         };
     }])
+.controller ("MongoBossController", ["$scope", "BossQuestion", function($scope, BossQuestion) {
+    var mongoQ = [];
+    var allQ = [];
+    var bossQuestions = BossQuestion.query(function() {
+        for (var i = 0; i < bossQuestions.length; i++) {
+            //console.log(bossQuestions[i].question)
+            if (bossQuestions[i].category === "Mongo") {
+                //console.log(bossQuestions[i].question)
+                (mongoQ).push(bossQuestions[i].question);
+                (allQ).push(bossQuestions[i])
+                console.log(allQ)
+                $scope.mongo = allQ;           
+            }
+        };//this can be a controller for all bosses
+    });
+}])

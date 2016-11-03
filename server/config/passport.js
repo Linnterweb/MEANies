@@ -18,6 +18,8 @@ function configurePassport(app) {
             }
             utils.checkPassword(password, user.password)
             .then(function(passwordMatches) {
+                console.log('checking password');
+                console.log(passwordMatches);
                 if (passwordMatches) {
                     return done(null, user);
                 } else {

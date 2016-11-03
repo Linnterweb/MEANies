@@ -11,3 +11,9 @@ angular.module('MEANies.factories', [])
     });
     return users;
 }])
+
+.factory('BossQuestion', ['$resource', function($resource) {
+    return $resource('http://localhost:3000/api/bosses/:id', { id: '@id' }, {
+        'update': { method: 'PUT' }
+    });
+}])

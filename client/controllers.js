@@ -118,7 +118,7 @@ angular.module("MEANies.controllers", [])
                     window.location.assign("/questions/" + newId);
                 } else {
                     console.log("WRONG!!!")
-                    alert("you have brought shame on your family. try again")
+                    alert("You have brought shame on your family. try again")
                 };
             };
         });
@@ -164,3 +164,19 @@ angular.module("MEANies.controllers", [])
             });
         };
     }])
+.controller ("MongoBossController", ["$scope", "BossQuestion", function($scope, BossQuestion) {
+    var mongoQ = [];
+    var allQ = [];
+    var bossQuestions = BossQuestion.query(function() {
+        for (var i = 0; i < bossQuestions.length; i++) {
+            //console.log(bossQuestions[i].question)
+            if (bossQuestions[i].category === "Mongo") {
+                //console.log(bossQuestions[i].question)
+                (mongoQ).push(bossQuestions[i].question);
+                (allQ).push(bossQuestions[i])
+                console.log(allQ)
+                $scope.mongo = allQ;           
+            }
+        };//this can be a controller for all bosses
+    });
+}])

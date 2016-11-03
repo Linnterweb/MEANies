@@ -12,9 +12,9 @@ exports.read = function(id) {
 //     return db.empty("DeleteUser", [id]);
 // }
 
-// exports.create = function(firstname, lastname, email, hash, role) {
-//     return db.row("InsertUser", [firstname, lastname, email, hash, role])
-// }
+exports.create = function(firstname, lastname, password, email, username) {
+    return db.row("CreateUser", [firstname, lastname, password, email, username])
+}
 
 exports.update = function(id) {
     return db.empty("UpdateUserProgress", [id])

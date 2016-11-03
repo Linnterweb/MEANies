@@ -23,7 +23,7 @@ $(document).ready(function() {
 		// var x = event.pageX,
 		// 	y = event.pageY;
 
-		var position = $('#dot').position();
+		var position = $('#1').position();
 		var percentLeft = position.left / $('#counter').width() * 100;
 		var percentTop = position.top / $('#counter').height() * 100;
 		console.log(position);

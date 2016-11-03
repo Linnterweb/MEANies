@@ -13,6 +13,34 @@ angular.module("MEANies.controllers", [])
         $scope.showingDetails = false;
         
         $scope.questions = Question.query();
+
+        $scope.circleClicked = function($event) {
+            $scope.toggleDetails.call(this);
+            var target = $event.currentTarget;
+
+            var position = $(target).position();
+            var percentLeft = position.left / $('#counter').width() * 100;
+            var percentTop = position.top / $('#counter').height() * 100;
+            console.log(position);
+
+            $('.mario')
+            .animate({
+                top: 68 + '%',
+            })
+            .animate({
+                left: 23 + '%',
+            })
+            .animate({
+                top: 36 + '%',
+            })
+            .animate({
+                left: 34 +'%',
+            })
+            .animate({
+                top: percentTop + '%',
+                left: percentLeft + '%'
+            });
+        }
         $scope.toggleDetails = function () {
             console.log('inside toggle details');
             // console.log($scope.questionid);

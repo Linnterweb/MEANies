@@ -45,31 +45,8 @@ angular.module("MEANies.controllers", [])
                 }
             })
         }
-        }])
-.controller("QuestionsController", ["$scope", "Question", function($scope, Question) {
-    $scope.query = function() {
-        var answer = prompt($scope.question);
-        if (answer === "a") {
-            console.log("good job a")
-        }
-    };
-    $scope.question = Question.query();
-    console.log($scope.ID)
-          $scope.toggleDetails = function() {
-              console.log(this.question.id)
-              console.log((this.question.id).toString())
-              
-            if (this.showingDetails === true) { // if the clicked product is already showing details
-                this.showingDetails = false; // make the clicked product not show details
-                $scope.detailMode = false; // indicate that we are NOT showing details somewhere on the page
-            } else { // the clicked product is not already showing details
-                if ($scope.detailMode !== true) { // if we are NOT showing details anywhere on the page
-                    this.showingDetails = true; // show details for this product
-                    $scope.detailMode = true; // indicate that we ARE showing details somewhere on the page
-                }
-            }
-    };
 }])
+
 .controller ("QuestionController", ["$scope", "Question", "$location", "$routeParams", "User", function($scope, Question, $location, $routeParams, User) {
     $scope.question = Question.get({ id:$routeParams.id });
     console.log($routeParams.id)
@@ -158,6 +135,18 @@ angular.module("MEANies.controllers", [])
 
 }])
    
-
-
-
+.controller ("UserCreateController", ["$scope", "User", function($scope, User) {
+    $scope.createUser = function() {
+        var newUser = new User(
+            {
+                firstname: $scope.newFirstName, 
+                lastname: $scope.newLastName, 
+                email: $scope.newEmail, 
+                password: $scope.newPass,
+                username: $scope.newUsername
+            });
+        newUser.$save(function(success) {
+                window.location.assign("/");
+        });
+    };
+}])

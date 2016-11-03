@@ -6,20 +6,6 @@ var utils = require('../utils');
 
 var router = express.Router();
 
-router.route("/")
-    .post(function(req, res) {
-        var u = req.body;
-        utils.encryptPassword(u.password)
-            .then(function(hash) {
-                return procedures.create(u.firstname, u.lastname, hash, u.email, u.username);
-            }).then(function(id) {
-                res.send(id);
-            }).catch(function(err) {
-                console.log(err);
-                res.sendStatus(500);
-            });
-    });
-
 router.post('/login', function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
         if (err) {
@@ -47,6 +33,34 @@ router.get('/logout', function(req, res) {
     });
 });
 
+router.all('*', auth.isLoggedIn);
+
+router.route("/")
+    .post(function(req, res) {
+        var u = req.body;
+        utils.encryptPassword(u.password)
+            .then(function(hash) {
+                return procedures.create(u.firstname, u.lastname, hash, u.email, u.username);
+            }).then(function(id) {
+                res.send(id);
+            }).catch(function(err) {
+                console.log(err);
+                res.sendStatus(500);
+            });
+    })
+    .get(function(req, res) {
+        procedures.all().then(function(users) {
+            res.send(users);
+        }, function(err) {
+            console.log(err);
+            res.status(500).send(err);
+        });
+    });
+
+router.get('/me', function(req, res) {
+    res.send(req.user);
+});
+
 router.route("/:id")
     .get(function(req, res) {
         procedures.read(req.params.id)
@@ -68,4 +82,4 @@ router.route("/:id")
         });
     });
 
-    module.exports = router;
+module.exports = router;

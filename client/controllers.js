@@ -24,18 +24,18 @@ angular.module("MEANies.controllers", [])
             console.log(position);
 
             $('.mario')
-            .animate({
-                top: 68 + '%',
-            })
-            .animate({
-                left: 23 + '%',
-            })
-            .animate({
-                top: 36 + '%',
-            })
-            .animate({
-                left: 34 +'%',
-            })
+            // .animate({
+            //     top: 68 + '%',
+            // })
+            // .animate({
+            //     left: 23 + '%',
+            // })
+            // .animate({
+            //     top: 36 + '%',
+            // })
+            // .animate({
+            //     left: 34 +'%',
+            // })
             .animate({
                 top: percentTop + '%',
                 left: percentLeft + '%'
@@ -95,7 +95,7 @@ angular.module("MEANies.controllers", [])
         $scope.question = Question.query();
     }])
 
-    .controller("QuestionController", ["$scope", "Question", "$location", "$routeParams", "User", function ($scope, Question, $location, $routeParams, User) {
+    .controller("QuestionController", ["$scope", "Question", "$location", "$routeParams", "User", "UserService", function ($scope, Question, $location, $routeParams, User, UserService) {
         $scope.question = Question.get({ id: $routeParams.id });
         var question = Question.get({ id: $routeParams.id }, function (question) {
             console.log(question.answer);

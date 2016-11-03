@@ -154,9 +154,28 @@ angular.module("MEANies.controllers", [])
 
     }])
 
-.controller ("LoginController", ["$scope", "Question", "$location", "$routeParams", "User", function($scope, Question, $location, $routeParams, User) {
+    .controller ("LoginController", ["$scope", "Question", "$location", "$routeParams", "User", "UserService", function($scope, Question, $location, $routeParams, User, UserService) {
+        UserService.me().then(function(me) {
+                redirect();
+            });
+            function redirect() {
+                var dest = $location.search().p;
+                if (!dest) {
+                    dest = '/';
+                }
+                $location.path(dest).search('p', null).replace();
+                //go to page, clear out search parameter, and REPLACE history with current page. Eliminates 'back' browser loops
+            }
 
-}])
+            $scope.login = function() {
+                UserService.login($scope.email, $scope.password)
+                .then(function() {
+                    redirect();
+                }, function(err) {
+                    console.log(err);
+                });
+            }
+    }])
    
 
 

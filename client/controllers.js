@@ -154,7 +154,7 @@ angular.module("MEANies.controllers", [])
             }
     }])
    
-.controller ("UserCreateController", ["$scope", "User", function($scope, User) {
+.controller ("UserCreateController", ["$scope", "User", "UserService", function($scope, User, UserService) {
     $scope.createUser = function() {
         var newUser = new User(
             {

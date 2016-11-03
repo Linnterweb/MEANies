@@ -1,4 +1,4 @@
-angular.module('AngularBlog.services', [])
+angular.module('MEANies.services', [])
 .service('UserService', ['$http', '$location', function($http, $location) {
 
     var user;

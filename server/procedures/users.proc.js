@@ -12,8 +12,8 @@ exports.read = function(id) {
 //     return db.empty("DeleteUser", [id]);
 // }
 
-exports.create = function(firstname, lastname, password, email, username) {
-    return db.row("CreateUser", [firstname, lastname, password, email, username])
+exports.create = function(firstname, lastname, hash, email, username) {
+    return db.row("CreateUser", [firstname, lastname, hash, email, username])
 }
 
 exports.update = function(id) {

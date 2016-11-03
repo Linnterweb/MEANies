@@ -98,19 +98,38 @@ angular.module("MEANies.controllers", [])
         //get logged in "me" and use their id to update them.
     }])
 
-    .controller ("LoginController", ["$scope", "Question", "$location", "$routeParams", "User", function($scope, Question, $location, $routeParams, User) {
+    .controller ("LoginController", ["$scope", "Question", "$location", "$routeParams", "User", "UserService", function($scope, Question, $location, $routeParams, User, UserService) {
+        UserService.me().then(function(me) {
+                redirect();
+            });
+            function redirect() {
+                var dest = $location.search().p;
+                if (!dest) {
+                    dest = '/';
+                }
+                $location.path(dest).search('p', null).replace();
+                //go to page, clear out search parameter, and REPLACE history with current page. Eliminates 'back' browser loops
+            }
 
+            $scope.login = function() {
+                UserService.login($scope.email, $scope.password)
+                .then(function() {
+                    redirect();
+                }, function(err) {
+                    console.log(err);
+                });
+            }
     }])
    
-    .controller ("UserCreateController", ["$scope", "User", function($scope, User) {
-        $scope.createUser = function() {
-            var newUser = new User(
-                {
-                    firstname: $scope.newFirstName, 
-                    lastname: $scope.newLastName, 
-                    email: $scope.newEmail, 
-                    password: $scope.newPass,
-                    username: $scope.newUsername
+.controller ("UserCreateController", ["$scope", "User", "UserService", function($scope, User, UserService) {
+    $scope.createUser = function() {
+        var newUser = new User(
+            {
+                firstname: $scope.newFirstName, 
+                lastname: $scope.newLastName, 
+                email: $scope.newEmail, 
+                password: $scope.newPass,
+                username: $scope.newUsername
                 });
             newUser.$save(function(success) {
                     window.location.assign("/");

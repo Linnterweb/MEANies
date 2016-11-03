@@ -1,4 +1,4 @@
-angular.module("MEANies", ["ngRoute", "ngResource", "MEANies.controllers", "MEANies.factories"])
+angular.module("MEANies", ["ngRoute", "ngResource", "MEANies.controllers", "MEANies.factories", "MEANies.services"])
 
 .config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);

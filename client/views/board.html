@@ -1,26 +1,38 @@
-<div id="gamebackground">
+<script src="script.js"></script> 
+
+<div class="container-fluid">
     
     <div id="box">
       <div>
 
-          <img src='views/images/map1.png' class="picdiv" ng-click="toggleDetails()">
+          
+          <div id="counter">
+            <img class="mario" src="http://i1061.photobucket.com/albums/t480/ericqweinstein/mario.jpg">
+            <img class="dot" id="dot" src="images/circle.png">
+            <img src="map/map2.png">
+          </div>
 
           <div>
             <div ng-repeat="question in questions">
                     <!--<h1>{{ question.question }}</h1>-->
-                <div id="attacktwo" ng-style="{ 'left': question.Xcoord + 'px', 'top': question.Ycoord + 'px' }" ng-click="toggleDetails()">
+                <div id="attacktwo" class="dot" ng-style="{ 'left': question.Xcoord + 'px', 'top': question.Ycoord + 'px' }" ng-click="toggleDetails()">
                 </div>
             </div>
             <!--<div id="attacktwo" ng-click="toggleDetails()"></div>
             <div id="attackone" ng-click="toggleDetails()"></div>   
             <div id="attackthree" ng-click="toggleDetails()"></div>-->
+            
+                
+                
+                
+            </div>
            
                  
                  
          </div>
 
       </div>
-            <img class="mario" src="http://i1061.photobucket.com/albums/t480/ericqweinstein/mario.jpg"/> 
+            
 
             
                 <div class="newbox" ng-show="showingDetails" ng-click="toggleDetails()">

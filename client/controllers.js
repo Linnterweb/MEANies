@@ -42,34 +42,29 @@ angular.module("MEANies.controllers", [])
 
                 $scope.query = function () {
                     var answer = prompt("What'll it be pardner?");
-                }
-            })
+
+                    if (answer === question.answer) {
+                    var user = User.get({ id: quest }, function(user) {
+                    var updateUser = function() {
+                        user.$update(function(success) {
+
+                                });
+                            };
+                            updateUser();
+
+                        });
+                        alert("good job!");
+                        // var newId = parseInt($routeParams.id) + 1
+                        // window.location.assign("/questions/" + newId);
+                        // toggleDetails();
+                    } else {
+                        console.log("WRONG!!!")
+                        alert("you have brought shame on your family. try again")
+                    }
+                };
+            });
         }
-        }])
-.controller("QuestionsController", ["$scope", "Question", function($scope, Question) {
-    $scope.query = function() {
-        var answer = prompt($scope.question);
-        if (answer === "a") {
-            console.log("good job a")
-        }
-    };
-    $scope.question = Question.query();
-    console.log($scope.ID)
-          $scope.toggleDetails = function() {
-              console.log(this.question.id)
-              console.log((this.question.id).toString())
-              
-            if (this.showingDetails === true) { // if the clicked product is already showing details
-                this.showingDetails = false; // make the clicked product not show details
-                $scope.detailMode = false; // indicate that we are NOT showing details somewhere on the page
-            } else { // the clicked product is not already showing details
-                if ($scope.detailMode !== true) { // if we are NOT showing details anywhere on the page
-                    this.showingDetails = true; // show details for this product
-                    $scope.detailMode = true; // indicate that we ARE showing details somewhere on the page
-                }
-            }
-    };
-}])
+    }])
 .controller ("QuestionController", ["$scope", "Question", "$location", "$routeParams", "User", function($scope, Question, $location, $routeParams, User) {
     $scope.question = Question.get({ id:$routeParams.id });
     console.log($routeParams.id)

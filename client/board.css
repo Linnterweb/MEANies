@@ -1,14 +1,14 @@
 #box {
-    width: 1000px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
     border: red solid 4px;
     background-color: tan;
     position: relative;
 }
-.picdiv {
+/*.picdiv {
     width: 1000px;
     height: 600px;
-}
+}*/
 .newbox {
     width: 90%;
     height: 60%;
@@ -31,7 +31,7 @@
 .inquiry {
     color: white;
     border: white solid 3px;
-    width: 20%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
@@ -52,8 +52,8 @@
     left: 170px;
 }
 #attacktwo {
-    width: 3%;
-    height: 6%;
+    width: 2.5%;
+    height: 4%;
     background-color: tan;
     border: darkgoldenrod solid 4px;
     border-radius: 50px;

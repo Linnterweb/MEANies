@@ -203,3 +203,4 @@ angular.module("MEANies.controllers", [])
         
     }])
 
+//$scope.question = BossQuestion.get({ id: quest });

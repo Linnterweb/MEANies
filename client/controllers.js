@@ -11,12 +11,23 @@ angular.module("MEANies.controllers", [])
     .controller('BoardController', ['$scope', '$location', 'Question', '$routeParams', 'User', 'UserService', function ($scope, $location, Question, $routeParams, User, UserService) {
         // $scope.detailMode = false; // start off NOT showing details anywhere on the page
         $scope.showingDetails = false;
-
+        
         var currentQuestionId = 1;
+        var pizza = User.me(function (success) {
+            console.log(pizza);
+            currentQuestionId = pizza.progress
+            console.log(currentQuestionId);
+        });
+
+        
+        
+        
         
         $scope.questions = Question.query();
 
         $scope.circleClicked = function($event) {
+           
+            
             if (currentQuestionId === this.question.id) {
                 $scope.toggleDetails.call(this);
                 var target = $event.currentTarget;
@@ -47,7 +58,9 @@ angular.module("MEANies.controllers", [])
                 alert('You cannot answer that question yet!');
             }
 
+        
         }
+        
         $scope.toggleDetails = function () {
             console.log('inside toggle details');
             // console.log($scope.questionid);
@@ -101,6 +114,7 @@ angular.module("MEANies.controllers", [])
                 };
             });
         }
+    
     }])
 
 

@@ -11,9 +11,15 @@ WHAT IS DONE:
  - USERS:
     - Create User working
         - Passwords are hashed and salted
-    - 
+    - Progress is saved
 
 WHAT NEEDS DOIN:
+ - USERS:
+    - Must get User Progress
+ - QUESTIONS:
+     - Close pop-up after successful answer
+ - BOSS FIGHT ENCOUNTER
+     - Redirect after success back to game board
 
 
 WISHLIST:

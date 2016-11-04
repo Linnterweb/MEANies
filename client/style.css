@@ -86,3 +86,13 @@ h4 {
     height: 20px;
     width: 20px;
 }
+
+.mongo {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    top: 37%;
+    left: 20%;
+    text-align: center;
+    z-index: 0;
+}

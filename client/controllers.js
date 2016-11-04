@@ -75,7 +75,8 @@ angular.module("MEANies.controllers", [])
                     var answer = prompt("What'll it be pardner?");
 
                     if (answer.toLowerCase() === (question.answer).toLowerCase()) {
-                    var user = User.get({ id: quest }, function(user) {
+                    console.log(quest)
+                    var user = User.get({ id: quest }, function(user) {//needs to be user id not question id
                     var updateUser = function() {
                         user.$update(function(success) {
 

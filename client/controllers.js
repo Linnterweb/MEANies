@@ -80,6 +80,8 @@ angular.module("MEANies.controllers", [])
                     // $scope.user = User.me();
 
                     var updateUser = function() {
+                        user.progress = 1;//added
+                        user.bossProgress = 0;//adding boss/board progress fn
                         user.$update(function(success) {
 
                                 });
@@ -200,3 +202,4 @@ angular.module("MEANies.controllers", [])
         });
         
     }])
+

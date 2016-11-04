@@ -20,6 +20,6 @@ exports.create = function(firstname, lastname, hash, email, username) {
     return db.row("CreateUser", [firstname, lastname, hash, email, username])
 }
 
-exports.update = function(id) {
-    return db.empty("UpdateUserProgress", [id])
+exports.update = function(id, progress, bossProgress) {
+    return db.empty("UpdateUserProgress", [id, progress, bossProgress])
 }

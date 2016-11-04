@@ -6,11 +6,33 @@ WHAT IS DONE:
         - PC moves directly to question
         - Pop-up window appears on screen with correct question
         - Pop-up window disappears on click whether or not its been answered
+        - If player attempts to go out or order, pop-up appears that lets them know they can't do that.
+
+ - USERS:
+    - Create User working
+        - Passwords are hashed and salted
+    - Progress is saved
 
 WHAT NEEDS DOIN:
 
+big boss design/execution
+board/question layout
+header/footer
+winner html
+
+ - USERS:
+    - Must get User Progress
+ - QUESTIONS:
+     - Close pop-up after successful answer
+ - BOSS FIGHT ENCOUNTER
+     - Redirect after success back to game board
+
 
 WISHLIST:
+skin options for user to create themselves
+upload photo
+cheat codes
+penalty for missing a question
 
 
 END PRODUCT:

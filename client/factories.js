@@ -7,7 +7,14 @@ angular.module('MEANies.factories', [])
 
 .factory("User", ["$resource", function($resource) {
     var users = $resource("/api/users/:id", { id : "@id" }, {
-        "update": {method : "PUT"}
+        update: {
+            method : "PUT"
+        },
+        me: {
+            method: "GET",
+            isArray: false,
+            url: '/api/users/me'
+        }
     });
     return users;
 }])

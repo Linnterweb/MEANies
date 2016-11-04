@@ -8,7 +8,7 @@ angular.module("MEANies.controllers", [])
         //  });   
     }])
     
-    .controller('BoardController', ['$scope', '$location', 'Question', '$routeParams', 'User', function ($scope, $location, Question, $routeParams, User) {
+    .controller('BoardController', ['$scope', '$location', 'Question', '$routeParams', 'User', 'UserService', function ($scope, $location, Question, $routeParams, User, UserService) {
         // $scope.detailMode = false; // start off NOT showing details anywhere on the page
         $scope.showingDetails = false;
 
@@ -74,8 +74,11 @@ angular.module("MEANies.controllers", [])
                 $scope.query = function () {
                     var answer = prompt("What'll it be pardner?");
 
-                    if (answer === question.answer) {
-                    var user = User.get({ id: quest }, function(user) {
+                    if (answer.toLowerCase() === (question.answer).toLowerCase()) {
+
+                    var user = User.me(function(user) {
+                    // $scope.user = User.me();
+
                     var updateUser = function() {
                         user.$update(function(success) {
 
@@ -91,7 +94,7 @@ angular.module("MEANies.controllers", [])
                         currentQuestionId++;
                     } else {
                         console.log("WRONG!!!")
-                        alert("you have brought shame on your family. try again")
+                        alert("You have brought shame on your family. try again")
                     }
                 };
             });
@@ -157,34 +160,43 @@ angular.module("MEANies.controllers", [])
             }
     }])
    
-.controller ("UserCreateController", ["$scope", "User", "UserService", function($scope, User, UserService) {
-    $scope.createUser = function() {
-        var newUser = new User(
-            {
-                firstname: $scope.newFirstName, 
-                lastname: $scope.newLastName, 
-                email: $scope.newEmail, 
-                password: $scope.newPass,
-                username: $scope.newUsername
+    .controller ("UserCreateController", ["$scope", "User", "UserService", function($scope, User, UserService) {
+        $scope.createUser = function() {
+            var newUser = new User(
+                {
+                    firstname: $scope.newFirstName, 
+                    lastname: $scope.newLastName, 
+                    email: $scope.newEmail, 
+                    password: $scope.newPass,
+                    username: $scope.newUsername
+                    });
+                newUser.$save(function(success) {
+                        window.location.assign("/");
                 });
-            newUser.$save(function(success) {
-                    window.location.assign("/");
-            });
-        };
+            };
+        }])
+    .controller ("BossController", ["$scope", "BossQuestion", function($scope, BossQuestion) {
+        var mongoQ = [];
+        var expressQ = [];
+        var angularQ = [];
+        var nodeQ = [];
+        var bossQuestions = BossQuestion.query(function() {
+            for (var i = 0; i < bossQuestions.length; i++) {
+                if (bossQuestions[i].category === "Mongo") {
+                    //console.log(bossQuestions[i].question)
+                    (mongoQ).push(bossQuestions[i]);
+                    $scope.mongo = mongoQ;           
+                } else if (bossQuestions[i].category === "Express") {
+                    (expressQ).push(bossQuestions[i]);
+                    $scope.express = expressQ;
+                } else if (bossQuestions[i].category === "Angular") {
+                    (angularQ).push(bossQuestions[i]);
+                    $scope.angular = angularQ;
+                } else if (bossQuestions[i].category === "Node") {
+                    (nodeQ).push(bossQuestions[i]);
+                    $scope.node = nodeQ;
+                }
+            };
+        });
+        
     }])
-.controller ("MongoBossController", ["$scope", "BossQuestion", function($scope, BossQuestion) {
-    var mongoQ = [];
-    var allQ = [];
-    var bossQuestions = BossQuestion.query(function() {
-        for (var i = 0; i < bossQuestions.length; i++) {
-            //console.log(bossQuestions[i].question)
-            if (bossQuestions[i].category === "Mongo") {
-                //console.log(bossQuestions[i].question)
-                (mongoQ).push(bossQuestions[i].question);
-                (allQ).push(bossQuestions[i])
-                console.log(allQ)
-                $scope.mongo = allQ;           
-            }
-        };//this can be a controller for all bosses
-    });
-}])

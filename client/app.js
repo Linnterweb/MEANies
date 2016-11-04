@@ -25,7 +25,19 @@ angular.module("MEANies", ["ngRoute", "ngResource", "MEANies.controllers", "MEAN
     })
     .when("/mongo_boss", {
         templateUrl: "views/mongo_boss.html",
-        controller: "MongoBossController"
+        controller: "BossController"
+    })
+    .when("/express_boss", {
+        templateUrl: "views/express_boss.html",
+        controller: "BossController"
+    })
+    .when("/angular_boss", {
+        templateUrl: "views/angular_boss.html",
+        controller: "BossController"
+    })
+    .when("/node_boss", {
+        templateUrl: "views/node_boss.html",
+        controller: "BossController"
     })
     .when("/questions", {
         templateUrl: "views/questions.html",

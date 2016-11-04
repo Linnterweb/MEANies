@@ -3,55 +3,40 @@
 <script src="script.js"></script> 
 
 <div class="container-fluid">
-    
     <div id="box">
-      <div>
-
-          
-          <div id="counter">
-            <img class="mario" src="http://i1061.photobucket.com/albums/t480/ericqweinstein/mario.jpg">
-            <img class="dot" id="dot" src="images/circle.png">
-            <img src="map/map3.png">
-          </div>
-
-          <div>
-            <div ng-repeat="question in questions">
-                    <!--<h1>{{ question.question }}</h1>-->
-                <div id="{{ question.id }}" class="attacktwo" ng-style="{ 'left': question.Xcoord + '%', 'top': question.Ycoord + '%' }" ng-click="circleClicked($event)">
-                </div>
-            </div>        
+        <div>
+            <div id="counter">
+                <img class="mario" src="images/mario.ico">
+                <img class="dot" id="dot" src="images/circle.png">
+                <img src="map/map3.1.png">
             </div>
-           
-                 
-                 
-         </div>
-
-      </div>
-            
-
-            
-                <div class="newbox" ng-show="showingDetails" ng-click="toggleDetails()">
-                    
-                    <div >
-                        <h1 class='battle'>{{ question.question }}</h1>
-                        <div class='inquiry'>
-                            <ol type="A">
-                                <li>{{ question.A }}</li>
-                                <li>{{ question.B }}</li>
-                                <li>{{ question.C }}</li>
-                                <li>{{ question.D }}</li>
-                            </ol>
-                            <!--<input type="text" class="answer" placeholder="answer" autofocus>-->
-                            <div class="question" ng-mouseover="query()">HOVER TO ATTACK</div>
-                        </div>
-                        
-                    </div>            
-                </div> 
-            <!--</button>-->
-            
-
-        
+            <div>
+                <div ng-repeat="question in questions">
+                        <!--<h1>{{ question.question }}</h1>-->
+                    <div id="{{ question.id }}" class="attacktwo dot" ng-style="{ 'left': question.Xcoord + '%', 'top': question.Ycoord + '%' }" ng-click="circleClicked($event)">
+                    </div>
+                </div>        
+            </div>
+        </div>
     </div>
+            
+    <div class="newbox" ng-show="showingDetails" ng-click="toggleDetails()">
+        <div>
+            <h1 class='battle'>{{ question.question }}</h1>
+            <div class='inquiry'>
+                <ol type="A">
+                    <li>{{ question.A }}</li>
+                    <li>{{ question.B }}</li>
+                    <li>{{ question.C }}</li>
+                    <li>{{ question.D }}</li>
+                </ol>
+                <!--<input type="text" class="answer" placeholder="answer" autofocus>-->
+                <div class="question" ng-mouseover="query()">HOVER TO ATTACK</div>
+            </div>
+        </div>            
+    </div> 
+            <!--</button>-->
 </div>
+
 
     <!--ng-repeat="battle in battlelist"-->

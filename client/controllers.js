@@ -74,7 +74,7 @@ angular.module("MEANies.controllers", [])
                 $scope.query = function () {
                     var answer = prompt("What'll it be pardner?");
 
-                    if (answer === question.answer) {
+                    if (answer.toLowerCase() === (question.answer).toLowerCase()) {
                     var user = User.get({ id: quest }, function(user) {
                     var updateUser = function() {
                         user.$update(function(success) {
@@ -172,19 +172,27 @@ angular.module("MEANies.controllers", [])
             });
         };
     }])
-.controller ("MongoBossController", ["$scope", "BossQuestion", function($scope, BossQuestion) {
+.controller ("BossController", ["$scope", "BossQuestion", function($scope, BossQuestion) {
     var mongoQ = [];
-    var allQ = [];
+    var expressQ = [];
+    var angularQ = [];
+    var nodeQ = [];
     var bossQuestions = BossQuestion.query(function() {
         for (var i = 0; i < bossQuestions.length; i++) {
-            //console.log(bossQuestions[i].question)
             if (bossQuestions[i].category === "Mongo") {
                 //console.log(bossQuestions[i].question)
-                (mongoQ).push(bossQuestions[i].question);
-                (allQ).push(bossQuestions[i])
-                console.log(allQ)
-                $scope.mongo = allQ;           
+                (mongoQ).push(bossQuestions[i]);
+                $scope.mongo = mongoQ;           
+            } else if (bossQuestions[i].category === "Express") {
+                (expressQ).push(bossQuestions[i]);
+                $scope.express = expressQ;
+            } else if (bossQuestions[i].category === "Angular") {
+                (angularQ).push(bossQuestions[i]);
+                $scope.angular = angularQ;
+            } else if (bossQuestions[i].category === "Node") {
+                (nodeQ).push(bossQuestions[i]);
+                $scope.node = nodeQ;
             }
-        };//this can be a controller for all bosses
+        };
     });
 }])

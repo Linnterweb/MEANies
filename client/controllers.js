@@ -8,7 +8,7 @@ angular.module("MEANies.controllers", [])
         //  });   
     }])
     
-    .controller('BoardController', ['$scope', '$location', 'Question', '$routeParams', 'User', function ($scope, $location, Question, $routeParams, User) {
+    .controller('BoardController', ['$scope', '$location', 'Question', '$routeParams', 'User', 'UserService', function ($scope, $location, Question, $routeParams, User, UserService) {
         // $scope.detailMode = false; // start off NOT showing details anywhere on the page
         $scope.showingDetails = false;
 
@@ -75,8 +75,13 @@ angular.module("MEANies.controllers", [])
                     var answer = prompt("What'll it be pardner?");
 
                     if (answer.toLowerCase() === (question.answer).toLowerCase()) {
+<<<<<<< HEAD
                     console.log(quest)
                     var user = User.get({ id: 8 }, function(user) {//needs to be user id not question id
+=======
+                    var user = User.me(function(user) {
+                    // $scope.user = User.me();
+>>>>>>> 9064ace8c84feb8f4cbd7f646bb24f3187f9bb2d
                     var updateUser = function() {
                         user.$update(function(success) {
 

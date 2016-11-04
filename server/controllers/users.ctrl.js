@@ -35,6 +35,10 @@ router.get('/logout', function(req, res) {
 
 router.all('*', auth.isLoggedIn);
 
+router.get('/me', function(req, res) {
+    res.send(req.user);
+});
+
 router.route("/")
     .post(function(req, res) {
         var u = req.body;
@@ -57,10 +61,6 @@ router.route("/")
         });
     });
 
-router.get('/me', function(req, res) {
-    res.send(req.user);
-});
-
 router.route("/:id")
     .get(function(req, res) {
         procedures.read(req.params.id)
@@ -71,10 +71,8 @@ router.route("/:id")
         });
     })
     .put(function(req, res) {
-        utils.encryptPassword(req.body.password)
-        .then (function(hash) {
-            return procedures.update(req.params.id);
-        }).then(function() {
+        procedures.update(req.params.id)
+        .then(function() {
             res.sendStatus(204);
         }, function(err) {
             console.log(err);

@@ -196,6 +196,7 @@ angular.module("MEANies.controllers", [])
                         console.log(id)
                        // $scope.question = BossQuestion.get({ id: id });  this works too but goes through all q's'
                         $scope.question = mongoQ[id].question;
+                        $scope.wholequestion = mongoQ[id];
                     }  
                 } else if (bossQuestions[i].category === "Express") {
                     (expressQ).push(bossQuestions[i]);

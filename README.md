@@ -8,9 +8,16 @@ WHAT IS DONE:
         - Pop-up window disappears on click whether or not its been answered
 
 WHAT NEEDS DOIN:
-
+big boss design/execution
+board/question layout
+header/footer
+winner html
 
 WISHLIST:
+skin options for user to create themselves
+upload photo
+cheat codes
+penalty for missing a question
 
 
 END PRODUCT:

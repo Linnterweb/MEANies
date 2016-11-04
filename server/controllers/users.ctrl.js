@@ -71,7 +71,7 @@ router.route("/:id")
         });
     })
     .put(function(req, res) {
-        procedures.update(req.params.id)
+        procedures.update(req.params.id, req.body.progress, req.body.bossProgress)
         .then(function() {
             res.sendStatus(204);
         }, function(err) {

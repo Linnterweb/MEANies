@@ -12,7 +12,7 @@
     top: 68%;
     left: 13.75%;
     height: 20px;
-    max-height: 2%;
+    max-height: 4%;
     z-index: 2;
 }
 
@@ -86,4 +86,3 @@ h4 {
     height: 20px;
     width: 20px;
 }
-

@@ -178,131 +178,114 @@ angular.module("MEANies.controllers", [])
             };
         }])
     .controller ("BossController", ["$scope", "BossQuestion", function($scope, BossQuestion) {
+        $scope.showingDetails = false;
 
         var mongoQ = [];
         var expressQ = [];
         var angularQ = [];
         var nodeQ = [];
-                           
+
+       
+                        
         var bossQuestions = BossQuestion.query(function() {
-            for (var i = 0; i < bossQuestions.length; i++) {
-                var id = 0;
-                if (bossQuestions[i].category === "Mongo") {
-                    //console.log(bossQuestions[i].question)
-                    (mongoQ).push(bossQuestions[i]);
-                    $scope.mongo = mongoQ;       
-                    $scope.question = mongoQ[0].question;
-                    $scope.scroll = function() {
-                        id = id + 1;
-                        console.log(id)
-                       // $scope.question = BossQuestion.get({ id: id });  this works too but goes through all q's'
-                        $scope.question = mongoQ[id].question;
-                    }  
-                } else if (bossQuestions[i].category === "Express") {
-                    (expressQ).push(bossQuestions[i]);
-                    $scope.express = expressQ;
-                } else if (bossQuestions[i].category === "Angular") {
-                    (angularQ).push(bossQuestions[i]);
-                    $scope.angular = angularQ;
-                } else if (bossQuestions[i].category === "Node") {
-                    (nodeQ).push(bossQuestions[i]);
-                    $scope.node = nodeQ;
-                }
-            };
-        });
+             for (var i = 0; i < bossQuestions.length; i++) {
+                                var id = 0;
+                                if (bossQuestions[i].category === "Mongo") {
+                                    //console.log(bossQuestions[i].question)
+                                    (mongoQ).push(bossQuestions[i]);
+                                    $scope.mongo = mongoQ;       
+                                    $scope.question = mongoQ[0].question;
+                                    $scope.wholequestion = mongoQ[id];
+                                    $scope.scroll = function() {
+                                        id = id + 1;
+                                        console.log(id)
+                                    // $scope.question = BossQuestion.get({ id: id });  this works too but goes through all q's'
+                                        $scope.question = mongoQ[id].question;
+                                    }  
+                                } else if (bossQuestions[i].category === "Express") {
+                                    (expressQ).push(bossQuestions[i]);
+                                    $scope.express = expressQ;
+                                } else if (bossQuestions[i].category === "Angular") {
+                                    (angularQ).push(bossQuestions[i]);
+                                    $scope.angular = angularQ;
+                                } else if (bossQuestions[i].category === "Node") {
+                                    (nodeQ).push(bossQuestions[i]);
+                                    $scope.node = nodeQ;
+                                }
+                            };
+
+                $scope.toggleDetails = function () {
+                            console.log('inside toggle details');
+                            // console.log($scope.questionid);
+                            if ($scope.showingDetails === true) { // if the clicked product is already showing details
+                                $scope.showingDetails = false; // make the clicked product not show details
+                                $scope.detailMode = false; // indicate that we are NOT showing details somewhere on the page
+                            } else { // the clicked product is not already showing details
+                                console.log('in else');
+                                // if ($scope.detailMode !== true) { // if we are NOT showing details anywhere on the page
+                                console.log('setting showingDetails to true');
+                                $scope.showingDetails = true; // show details for this product
+                                console.log($scope.showingDetails);
+                                $scope.detailMode = true; // indicate that we ARE showing details somewhere on the page
+                                // }
+                            }
+                            // console.log(this.question.id)
+                            // var quest = (this.question.id).toString();
+                            // $scope.question = Question.get({ id: quest });
+                            // var question = Question.get({ id: quest }, function (question) {
+                            //     console.log(question.answer);
+                            //     console.log($location.search());
+
+                               
+
+                                $scope.query = function () {
+                                    var answer = prompt("What'll it be pardner?");
+
+                                    if (answer.toLowerCase() === (question.answer).toLowerCase()) {
+
+                                    var user = User.me(function(user) {
+                                
+
+                                    var updateUser = function() {
+                                        user.$update(function(success) {
+
+                                                });
+                                            };
+                                            updateUser();
+
+                                        });
+                                        alert("good job!");
+                                        
+                                        currentQuestionId++;
+                                    } else {
+                                        console.log("WRONG!!!")
+                                        alert("You have brought shame on your family. try again")
+                                    }
+                                };
+                            // });
+                        }
+
+                            
+                        });
+                        
         
     }])
 
 
-     // $scope.detailMode = false; // start off NOT showing details anywhere on the page
-        // $scope.showingDetails = false;
-
-        // var currentQuestionId = 1;
+    //  $scope.detailMode = false; // start off NOT showing details anywhere on the page
+    //     $scope.showingDetails = false;
         
-        // $scope.questions = Question.query();
+    //     $scope.questions = Question.query();
 
-        // $scope.circleClicked = function($event) {
-        //     if (currentQuestionId === this.question.id) {
-        //         $scope.toggleDetails.call(this);
-        //         var target = $event.currentTarget;
-
-        //         var position = $(target).position();
-        //         var percentLeft = position.left / $('#counter').width() * 100;
-        //         var percentTop = position.top / $('#counter').height() * 100;
-        //         console.log(position);
-
-        //         $('.mario')
-                // .animate({
-                //     top: 68 + '%',
-                // })
-                // .animate({
-                //     left: 23 + '%',
-                // })
-                // .animate({
-                //     top: 36 + '%',
-                // })
-                // .animate({
-                //     left: 34 +'%',
-                // })
-    //             .animate({
-    //                 top: percentTop + '%',
-    //                 left: percentLeft + '%'
-    //             });
+    //     $scope.circleClicked = function($event) {
+    //         if (currentQuestionId === this.question.id) {
+    //             $scope.toggleDetails.call(this);
+               
     //         } else {
     //             alert('You cannot answer that question yet!');
     //         }
 
     //     }
-    //     $scope.toggleDetails = function () {
-    //         console.log('inside toggle details');
-    //         // console.log($scope.questionid);
-    //         if ($scope.showingDetails === true) { // if the clicked product is already showing details
-    //             $scope.showingDetails = false; // make the clicked product not show details
-    //             $scope.detailMode = false; // indicate that we are NOT showing details somewhere on the page
-    //         } else { // the clicked product is not already showing details
-    //             console.log('in else');
-    //             // if ($scope.detailMode !== true) { // if we are NOT showing details anywhere on the page
-    //             console.log('setting showingDetails to true');
-    //             $scope.showingDetails = true; // show details for this product
-    //             console.log($scope.showingDetails);
-    //             $scope.detailMode = true; // indicate that we ARE showing details somewhere on the page
-    //             // }
-    //         }
-    //         console.log(this.question.id)
-    //         var quest = (this.question.id).toString();
-    //         $scope.question = Question.get({ id: quest });
-    //         var question = Question.get({ id: quest }, function (question) {
-    //             console.log(question.answer);
-    //             console.log($location.search());
-
-
-    //             $scope.query = function () {
-    //                 var answer = prompt("What'll it be pardner?");
-
-    //                 if (answer.toLowerCase() === (question.answer).toLowerCase()) {
-
-    //                 var user = User.me(function(user) {
-    //                 // $scope.user = User.me();
-
-    //                 var updateUser = function() {
-    //                     user.$update(function(success) {
-
-    //                             });
-    //                         };
-    //                         updateUser();
-
-    //                     });
-    //                     alert("good job!");
-    //                     // var newId = parseInt($routeParams.id) + 1
-    //                     // window.location.assign("/questions/" + newId);
-    //                     // toggleDetails();
-    //                     currentQuestionId++;
-    //                 } else {
-    //                     console.log("WRONG!!!")
-    //                     alert("You have brought shame on your family. try again")
-    //                 }
-    //             };
-    //         });
-    //     }
+       
     // }])
 

@@ -1,15 +1,28 @@
-<h1>Rawr. A giant MONGO attacks you.</h1>
-    <div id="box">
-        <div ng-repeat="question in mongo">
-            <h4>{{ question.question }}</h4>
+<div class="container-fluid">
+    <div id="bossbox">
+        <h1>Rawr. A giant MONGO attacks you.</h1>
+        <div class="attacktwo" ng-repeat="question in mongo" ng-click="toggleDetails()">
+                        <!--<h1>{{ question.question }}</h1>-->
+        </div>
+    
+        <div class="newbox" ng-show="showingDetails" ng-click="toggleDetails()">
+            <div>           
+                <h4 class="battle">{{ question.question }}</h4>
+                <div class="inquiry">
+                    <div ng-mouseover="scroll()">question</div>
+                    <h3>{{ wholequestion.question }}</h3>
+                    <div></div>
                 <ol type="A">
-                    <li>{{ question.A }}</li>
-                    <li>{{ question.B }}</li>
-                    <li>{{ question.C }}</li>
-                    <li>{{ question.D }}</li>
+                    <li>{{ wholequestion.A }}</li>
+                    <li>{{ wholequestion.B }}</li>
+                    <li>{{ wholequestion.C }}</li>
+                    <li>{{ wholequestion.D }}</li>
                 </ol>
+                </div>
+            </div>
+            
+            </div>
         </div>
-        <div ng-mouseover="scroll()">question
-            <h3>{{ question }}</h3>
-        </div>
-    </div>
+    </div> 
+</div>
+   

@@ -44,7 +44,7 @@
 #attackone {
     width: 3%;
     height: 6%;
-    background-color: tan;
+    background-color: brown;
     border: darkgoldenrod solid 4px;
     border-radius: 50px;
     position: absolute;
@@ -54,7 +54,7 @@
 .attacktwo {
     width: 2.5%;
     height: 4%;
-    background-color: tan;
+    background-color: clear;
     border: darkgoldenrod solid 4px;
     border-radius: 50px;
     position: absolute;

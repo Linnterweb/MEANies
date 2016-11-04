@@ -21,7 +21,7 @@
             
     <div class="newbox" ng-show="showingDetails" ng-click="toggleDetails()">
         <div>
-            <h1 class='battle'>{{ question.question }}</h1>
+            <h1 class='battle'>{{ question.category | uppercase }}: {{ question.question }}</h1>
             <div class='inquiry'>
                 <ol type="A">
                     <li>{{ question.A }}</li>
@@ -35,8 +35,8 @@
         </div>            
     </div> 
             <!--</button>-->
+        <button><a href="/mongo_boss">Mongo Boss</a></button>
 </div>
 
-<button id="boss1"><a href="/mongo_boss"></a></button>
+
     <!--ng-repeat="battle in battlelist"-->
-    <button><a href="/mongo_boss">Mongo Boss</a></button>

@@ -206,15 +206,18 @@ angular.module("MEANies.controllers", [])
                                 var id = 0;
                                 if (bossQuestions[i].category === "Mongo") {
                                     //console.log(bossQuestions[i].question)
+                                    
                                     (mongoQ).push(bossQuestions[i]);
+                                    $scope.wholequestion = mongoQ[0]
                                     $scope.mongo = mongoQ;       
-                                    $scope.question = mongoQ[0].question;
-                                    $scope.wholequestion = mongoQ[id];
+                                    //$scope.question = mongoQ[0].question;
+                                   // $scope.wholequestion = mongoQ[id];
                                     $scope.scroll = function() {
                                         id = id + 1;
                                         console.log(id)
                                     // $scope.question = BossQuestion.get({ id: id });  this works too but goes through all q's'
-                                        $scope.question = mongoQ[id].question;
+                                  //      $scope.question = mongoQ[id].question;
+                                        $scope.wholequestion = mongoQ[id];
                                     }  
                                 } else if (bossQuestions[i].category === "Express") {
                                     (expressQ).push(bossQuestions[i]);

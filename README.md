@@ -6,6 +6,12 @@ WHAT IS DONE:
         - PC moves directly to question
         - Pop-up window appears on screen with correct question
         - Pop-up window disappears on click whether or not its been answered
+        - If player attempts to go out or order, pop-up appears that lets them know they can't do that.
+
+ - USERS:
+    - Create User working
+        - Passwords are hashed and salted
+    - 
 
 WHAT NEEDS DOIN:
 

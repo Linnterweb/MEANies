@@ -7,24 +7,23 @@ WHAT IS DONE:
         - Pop-up window appears on screen with correct question
         - Pop-up window disappears on click whether or not its been answered
         - If player attempts to go out or order, pop-up appears that lets them know they can't do that.
-
+        - Close pop-up after successful answer
  - USERS:
     - Create User working
         - Passwords are hashed and salted
     - Progress is saved
+-header
 
 WHAT NEEDS DOIN:
  - After question is answered, modify answered div to indicate completion (gray-out, add check mark, etc.)
-
+push to aws
 big boss design/execution
 board/question layout
-header/footer
 winner html
 
  - USERS:
     - Must get User Progress
- - QUESTIONS:
-     - Close pop-up after successful answer
+
  - BOSS FIGHT ENCOUNTER
      - Redirect after success back to game board
 

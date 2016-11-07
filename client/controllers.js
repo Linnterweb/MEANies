@@ -14,10 +14,17 @@ angular.module("MEANies.controllers", [])
         
         var currentQuestionId = 1;
         var pizza = User.me(function (success) {
-            console.log(pizza);
+            console.log(success.username);
             currentQuestionId = pizza.progress
             console.log(currentQuestionId);
+            $scope.username = pizza.username;
         });
+
+        //    UserService.me().then(function(me) {
+        // console.log(me.id);
+        // $scope.firstname = me.firstname;
+        // $scope.lastname = me.lastname;
+        // var userid = me.id;
 
         
         $scope.questions = Question.query();

@@ -14,6 +14,7 @@ WHAT IS DONE:
     - Progress is saved
 
 WHAT NEEDS DOIN:
+ - After question is answered, modify answered div to indicate completion (gray-out, add check mark, etc.)
 
 big boss design/execution
 board/question layout

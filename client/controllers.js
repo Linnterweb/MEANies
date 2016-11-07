@@ -18,6 +18,7 @@ angular.module("MEANies.controllers", [])
             currentQuestionId = pizza.progress
             console.log(currentQuestionId);
             $scope.username = pizza.username;
+            $scope.progress = pizza.progress;
         });
 
         //    UserService.me().then(function(me) {

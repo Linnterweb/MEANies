@@ -38,7 +38,7 @@
     z-index: 1;
 }
 
-/*Login Page Styling Start*/
+/*Login and Create User Page Styling Start*/
 
 body {
   background-color:#fff;
@@ -46,13 +46,33 @@ body {
   font: normal 14px Roboto,arial,sans-serif;
 }
 
+.logo {
+    position: fixed;
+    /*top: 0%;
+    left: 0%;*/
+}
+
 .login-container {
     padding: 25px;
     position: fixed;
+    background: url('images/temp-bg.jpg') no-repeat center fixed;
+    background-size: cover;
+    /*padding: 0;*/
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#letsplay {
+    position: relative;
+    left: 20%;
+    width: 60%;
+    min-width:60%;
 }
 
 .form-login {
-    background-color: #EDEDED;
+    position: absolute;
+    background-color: goldenrod;
     padding-top: 10px;
     padding-bottom: 20px;
     padding-left: 20px;
@@ -61,6 +81,35 @@ body {
     border-color:#d2d2d2;
     border-width: 5px;
     box-shadow:0 1px 0 #cfcfcf;
+    color: white;
+    top: 30%;
+    left: 35%;
+    width: 30%;
+    box-shadow: -5px 5px 40px rgba(0,0,0, .7);
+}
+
+.loginBtn {
+    background-color: transparent;
+    border: none;
+    width: 100px;
+}
+
+.logoutBtn {
+    background-color: transparent;
+    border: none;
+    width: 120px;
+}
+
+.newuserBtn {
+    background-color: transparent;
+    border: none;
+    width: 140px;
+}
+
+.contBtn {
+    background-color: transparent;
+    border: none;
+    width: 140px;
 }
 
 h4 { 
@@ -72,6 +121,19 @@ h4 {
 
 .form-control {
     border-radius: 10px;
+    text-align: center;
+    /*height: 500px;
+    font-size: medium;*/
+}
+
+#userName {
+    height: 30px;
+    font-size: x-large;
+}
+
+#userPassword {
+    height: 30px;
+    font-size: x-large;
 }
 
 .wrapper {
@@ -79,6 +141,88 @@ h4 {
 }
 
 /*Login Page Styling End*/
+
+#saveBtn {
+    background-color: transparent;
+    border: none;
+    width: 200px;
+}
+
+#new-firstname {
+    height: 30px;
+    font-size: x-large;
+}
+
+#new-lastname {
+    height: 30px;
+    font-size: x-large;
+}
+
+#new-email {
+    height: 30px;
+    font-size: x-large;
+}
+
+#new-password {
+    height: 30px;
+    font-size: x-large;
+}
+
+#new-username {
+    height: 30px;
+    font-size: x-large;
+}
+
+/*Create User Page Styling End*/
+
+/*Board Styling Start*/
+
+.door {
+    background-color: transparent;
+    border: none;
+}
+
+#mongo {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 35%;
+    left: 20.2%;
+    text-align: center;
+    z-index: 0;
+}
+
+#express {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 35%;
+    left: 30%;
+    text-align: center;
+    z-index: 0;
+}
+
+#angular {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 35%;
+    left: 40%;
+    text-align: center;
+    z-index: 0;
+}
+
+#node {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 35%;
+    left: 50%;
+    text-align: center;
+    z-index: 0;
+}
+
+/*Board Styling End*/
 
 .black {
     position: absolute;
@@ -96,3 +240,39 @@ h4 {
     text-align: center;
     z-index: 0;
 }
+
+/*NavBar Styling Start*/
+
+.mariologo {
+    height: 5%;
+    width: 5%;
+    margin-top: 2%;
+}
+
+.navbar {
+    margin-top: 15px;
+    background-color: lightgrey;
+}
+
+.navbar .nav {
+    float: right;
+    margin-top: 1%;
+}
+
+
+.navbar-brand {
+    padding: 0;
+}
+
+/*NavBar Styling End*/
+
+
+#logo {
+    height: 3em;
+    width: 3em;
+    /*padding-top: 0.3em;*/
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    margin-top: 0.8em;
+    }
+

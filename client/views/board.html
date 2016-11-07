@@ -1,5 +1,31 @@
 
-<script src="script.js"></script> 
+<script src="script.js"></script>
+<div class="container-fluid">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                
+                <img src="images/mario.ico" class="mariologo" alt="" id="logo">
+                
+                <a href="/" class="navbar-brand"><img src="images/MEANiesNav.png"></a>
+                <h4>Welcome {{ username }}, Progress: {{ progress }}</h4>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>  
 
 <div class="container-fluid">
     <div id="box">
@@ -8,12 +34,16 @@
                 <img class="mario" src="images/mario.ico">
                 <img class="dot" id="dot" src="images/circle.png">
                 <img src="map/map3.1.png">
-                <a href="/mongo_boss"><button class="btn btn-sm mongo">M</button></a>
+                <a href="/mongo_boss"><button id="mongo" class="door"><img src="/images/Door.gif"></button></a>
+                <a href="/express_boss"><button id="express" class="door"><img src="/images/Door.gif"></button></a>
+                <a href="/angular_boss"><button id="angular" class="door"><img src="/images/Door.gif"></button></a>
+                <a href="/node_boss"><button id="node" class="door"><img src="/images/Door.gif"></button></a>
             </div>
             <div>
                 <div ng-repeat="question in questions">
                         <!--<h1>{{ question.question }}</h1>-->
                     <div id="{{ question.id }}" class="attacktwo dot" ng-style="{ 'left': question.Xcoord + '%', 'top': question.Ycoord + '%' }" ng-click="circleClicked($event)">
+                        <img class="attacktwo dot" ng-src="{{ question.imageurl }}">
                     </div>
                 </div>        
             </div>

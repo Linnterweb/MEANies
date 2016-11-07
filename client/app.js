@@ -5,8 +5,8 @@ angular.module("MEANies", ["ngRoute", "ngResource", "MEANies.controllers", "MEAN
     $routeProvider
 
     .when("/", {
-        templateUrl: "views/welcome.html",
-        controller: "WecomeController"
+        templateUrl: "views/login.html",
+        controller: "LoginController"
     })
     .when("/mario", {
         templateUrl: "views/mario.html"
@@ -18,6 +18,10 @@ angular.module("MEANies", ["ngRoute", "ngResource", "MEANies.controllers", "MEAN
     .when("/login", {
         templateUrl: "views/login.html",
         controller: "LoginController"
+    })
+    .when("/winner", {
+        templateUrl: "views/winner.html",
+        controller: "WinnerController"
     })
     .when("/users/create", {
         templateUrl: "views/create_user.html",

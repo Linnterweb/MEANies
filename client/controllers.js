@@ -14,14 +14,22 @@ angular.module("MEANies.controllers", [])
         
         var currentQuestionId = 1;
         var pizza = User.me(function (success) {
-            console.log(pizza);
+            console.log(success.username);
             currentQuestionId = pizza.progress
             console.log(currentQuestionId);
+            $scope.username = pizza.username;
+            $scope.progress = pizza.progress;
+            var userProgress = Question.get({ id: (pizza.progress - 1)}, function (question) {
+                var percentLeft = question.Xcoord;
+                var percentTop = question.Ycoord;
+                    $('.mario')
+                    .animate({
+                        top: percentTop + '%',
+                        left: percentLeft + '%'
+                    });
+                });
         });
 
-        
-        
-        
         
         $scope.questions = Question.query();
 
@@ -38,27 +46,15 @@ angular.module("MEANies.controllers", [])
                 console.log(position);
 
                 $('.mario')
-                // .animate({
-                //     top: 68 + '%',
-                // })
-                // .animate({
-                //     left: 23 + '%',
-                // })
-                // .animate({
-                //     top: 36 + '%',
-                // })
-                // .animate({
-                //     left: 34 +'%',
-                // })
                 .animate({
                     top: percentTop + '%',
                     left: percentLeft + '%'
                 });
+            } else if (currentQuestionId > this.question.id) {
+                alert('You have already answered that question.')
             } else {
                 alert('You cannot answer that question yet!');
             }
-
-        
         }
         
         $scope.toggleDetails = function () {
@@ -106,6 +102,7 @@ angular.module("MEANies.controllers", [])
                         // var newId = parseInt($routeParams.id) + 1
                         // window.location.assign("/questions/" + newId);
                         // toggleDetails();
+                        window.location.assign("/board")
                         currentQuestionId++;
                     } else {
                         console.log("WRONG!!!")
@@ -169,6 +166,15 @@ angular.module("MEANies.controllers", [])
             $scope.login = function() {
                 UserService.login($scope.email, $scope.password)
                 .then(function() {
+                    $location.path("/board");
+                }, function(err) {
+                    console.log(err);
+                });
+            }
+
+            $scope.logout = function() {
+                UserService.logout()
+                .then(function() {
                     redirect();
                 }, function(err) {
                     console.log(err);
@@ -211,8 +217,9 @@ angular.module("MEANies.controllers", [])
                         
                         $scope.query = function () {
                             var answer = prompt("What'll it be pardner?");
-                                    
+
                             if (answer.toLowerCase() === ($scope.wholequestion.answer).toLowerCase()) {
+
                                 
                                 var user = User.me(function(user) {
                                     
@@ -260,8 +267,17 @@ angular.module("MEANies.controllers", [])
             });
          
                             
-    }]);
+    }])
 
 
-   
+
+    //     }
+       
+    // }])
+    .controller("WinnerController", ["$scope", "UserService", function ($scope, UserService) {
+        UserService.me().then(function(me) {
+            console.log(me.id);
+            $scope.username = me.username;
+        });
+    }])
 

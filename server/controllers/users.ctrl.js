@@ -33,15 +33,8 @@ router.get('/logout', function(req, res) {
     });
 });
 
-router.all('*', auth.isLoggedIn);
-
-router.get('/me', function(req, res) {
-    res.send(req.user);
-});
-
-router.route("/")
-    .post(function(req, res) {
-        var u = req.body;
+router.post("/", function(req, res) {
+    var u = req.body;
         utils.encryptPassword(u.password)
             .then(function(hash) {
                 return procedures.create(u.firstname, u.lastname, hash, u.email, u.username);
@@ -52,6 +45,26 @@ router.route("/")
                 res.sendStatus(500);
             });
     })
+
+router.all('*', auth.isLoggedIn);
+
+router.get('/me', function(req, res) {
+    res.send(req.user);
+});
+
+router.route("/")
+    // .post(function(req, res) {
+    //     var u = req.body;
+    //     utils.encryptPassword(u.password)
+    //         .then(function(hash) {
+    //             return procedures.create(u.firstname, u.lastname, hash, u.email, u.username);
+    //         }).then(function(id) {
+    //             res.send(id);
+    //         }).catch(function(err) {
+    //             console.log(err);
+    //             res.sendStatus(500);
+    //         });
+    // })
     .get(function(req, res) {
         procedures.all().then(function(users) {
             res.send(users);

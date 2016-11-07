@@ -20,9 +20,6 @@ angular.module("MEANies.controllers", [])
         });
 
         
-        
-        
-        
         $scope.questions = Question.query();
 
         $scope.circleClicked = function($event) {
@@ -38,27 +35,15 @@ angular.module("MEANies.controllers", [])
                 console.log(position);
 
                 $('.mario')
-                // .animate({
-                //     top: 68 + '%',
-                // })
-                // .animate({
-                //     left: 23 + '%',
-                // })
-                // .animate({
-                //     top: 36 + '%',
-                // })
-                // .animate({
-                //     left: 34 +'%',
-                // })
                 .animate({
                     top: percentTop + '%',
                     left: percentLeft + '%'
                 });
+            } else if (currentQuestionId > this.question.id) {
+                alert('You have already answered that question.')
             } else {
                 alert('You cannot answer that question yet!');
             }
-
-        
         }
         
         $scope.toggleDetails = function () {
@@ -106,6 +91,7 @@ angular.module("MEANies.controllers", [])
                         // var newId = parseInt($routeParams.id) + 1
                         // window.location.assign("/questions/" + newId);
                         // toggleDetails();
+                        window.location.assign("/board")
                         currentQuestionId++;
                     } else {
                         console.log("WRONG!!!")
@@ -219,6 +205,7 @@ angular.module("MEANies.controllers", [])
                                     (mongoQ).push(bossQuestions[i]);
                                     $scope.wholequestion = mongoQ[0]
                                     $scope.mongo = mongoQ;       
+                                    console.log($scope.wholequestion.answer)
                                     //$scope.question = mongoQ[0].question;
                                    // $scope.wholequestion = mongoQ[id];
                                     $scope.scroll = function() {

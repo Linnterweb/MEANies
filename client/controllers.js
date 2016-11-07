@@ -19,6 +19,15 @@ angular.module("MEANies.controllers", [])
             console.log(currentQuestionId);
             $scope.username = pizza.username;
             $scope.progress = pizza.progress;
+            var userProgress = Question.get({ id: (pizza.progress - 1)}, function (question) {
+                var percentLeft = question.Xcoord;
+                var percentTop = question.Ycoord;
+                    $('.mario')
+                    .animate({
+                        top: percentTop + '%',
+                        left: percentLeft + '%'
+                    });
+                });
         });
 
         

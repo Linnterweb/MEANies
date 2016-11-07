@@ -85,3 +85,17 @@
     background-color: tan;
     position: relative;
 }
+#bossbackground {
+    position: relative;
+    background-color: black;
+}
+#title {
+    color: white;
+    text-align: center;
+}
+#mongomon {
+    display: inline-block;
+    margin-left: 38%;
+    margin-top: 10%;
+    position: absolute;
+}

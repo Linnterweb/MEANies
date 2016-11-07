@@ -61,8 +61,8 @@
     /*background-color: clear;
     border: darkgoldenrod solid 4px;
     border-radius: 50px;*/
-    background: url("images/Question.png") no-repeat center;
-    background-size: cover;
+    /*background: url("images/Question.png") no-repeat center;
+    background-size: cover;*/
     position: absolute;
     /*height: 15px;
     max-height: 2%;
@@ -74,7 +74,8 @@
 
 .attacktwo img {
     position: absolute;
-    height: 10%;
+    height: 100%;
+    width: 100%;
 }
 
 #attackthree {

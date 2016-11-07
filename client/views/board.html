@@ -1,5 +1,5 @@
 
-<script src="script.js"></script> 
+<script src="script.js"></script>
 
 <div class="container-fluid">
     <div id="box">
@@ -17,6 +17,7 @@
                 <div ng-repeat="question in questions">
                         <!--<h1>{{ question.question }}</h1>-->
                     <div id="{{ question.id }}" class="attacktwo dot" ng-style="{ 'left': question.Xcoord + '%', 'top': question.Ycoord + '%' }" ng-click="circleClicked($event)">
+                        <img class="attacktwo dot" ng-src="{{ question.imageurl }}">
                     </div>
                 </div>        
             </div>

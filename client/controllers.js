@@ -169,6 +169,15 @@ angular.module("MEANies.controllers", [])
             $scope.login = function() {
                 UserService.login($scope.email, $scope.password)
                 .then(function() {
+                    $location.path("/board");
+                }, function(err) {
+                    console.log(err);
+                });
+            }
+
+            $scope.logout = function() {
+                UserService.logout()
+                .then(function() {
                     redirect();
                 }, function(err) {
                     console.log(err);

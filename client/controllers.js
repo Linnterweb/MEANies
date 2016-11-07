@@ -21,12 +21,6 @@ angular.module("MEANies.controllers", [])
             $scope.progress = pizza.progress;
         });
 
-        //    UserService.me().then(function(me) {
-        // console.log(me.id);
-        // $scope.firstname = me.firstname;
-        // $scope.lastname = me.lastname;
-        // var userid = me.id;
-
         
         $scope.questions = Question.query();
 
@@ -309,4 +303,9 @@ angular.module("MEANies.controllers", [])
     //     }
        
     // }])
-
+    .controller("WinnerController", ["$scope", "UserService", function ($scope, UserService) {
+        UserService.me().then(function(me) {
+            console.log(me.id);
+            $scope.username = me.username;
+        });
+    }])

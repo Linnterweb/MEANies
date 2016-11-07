@@ -13,13 +13,15 @@ WHAT IS DONE:
         - Passwords are hashed and salted
     - Progress is saved
 -header
+ - After question is answered, modify answered div to indicate completion (gray-out, add check mark, etc.)
+winner html
 
 WHAT NEEDS DOIN:
- - After question is answered, modify answered div to indicate completion (gray-out, add check mark, etc.)
+
 push to aws
-big boss design/execution
+big boss design/execution and after victory redirect to winner.html
 board/question layout
-winner html
+
 
  - USERS:
     - Must get User Progress

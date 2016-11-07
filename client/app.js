@@ -19,6 +19,10 @@ angular.module("MEANies", ["ngRoute", "ngResource", "MEANies.controllers", "MEAN
         templateUrl: "views/login.html",
         controller: "LoginController"
     })
+    .when("/winner", {
+        templateUrl: "views/winner.html",
+        controller: "WinnerController"
+    })
     .when("/users/create", {
         templateUrl: "views/create_user.html",
         controller: "UserCreateController"

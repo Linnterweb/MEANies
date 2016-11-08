@@ -24,7 +24,7 @@ angular.module("MEANies.controllers", [])
             var userProgress = Question.get({ id: (pizza.progress - 1)}, function (question) {
                 var percentLeft = question.Xcoord;
                 var percentTop = question.Ycoord;
-                $('.mario').animate({
+                $('.mario').css({
                     top: percentTop + '%',
                     left: percentLeft + '%'
                 });
@@ -354,3 +354,34 @@ angular.module("MEANies.controllers", [])
         });
     }])
 
+    .controller("BigBossController", ["$scope", "BossQuestion", "User", "UserService", function($scope, BossQuestion, User, UserService) {
+        var bossQ = [];
+        var id = 0;
+        var bossQuestions = BossQuestion.query(function() {
+             for (var i = 0; i < bossQuestions.length; i++) {                         
+                if (bossQuestions[i].category === "Boss") {            
+                    (bossQ).push(bossQuestions[i]);
+                    $scope.boss = bossQ;
+                    $scope.query = function () {
+                        var answer = prompt("What'll it be pardner?");
+                        $scope.bossQ = bossQ[0];
+                        if (answer.toLowerCase() === ($scope.boss.answer).toLowerCase()) {                              
+                            var user = User.me(function(user) {                                  
+                                var updateUser = function() {
+                                    user.progress = 0
+                                    user.bossProgress = 1;
+                                    user.$update(function(success) {});
+                                };
+                                updateUser();
+                            });            
+                            alert("great work killer!");
+                            console.log(bossQ);
+                            id++;
+                            $scope.bossQ = bossQ[id];            
+                
+                        };
+                    };
+                };
+            };
+        });      
+    }])

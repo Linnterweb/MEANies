@@ -37,7 +37,6 @@ angular.module("MEANies.controllers", [])
            
             
             if (currentQuestionId === this.question.id) {
-                $scope.toggleDetails.call(this);
                 var target = $event.currentTarget;
 
                 var position = $(target).position();
@@ -50,12 +49,16 @@ angular.module("MEANies.controllers", [])
                     top: percentTop + '%',
                     left: percentLeft + '%'
                 });
+                var toggle = $scope.toggleDetails.bind(this);
+                setTimeout(function() {
+                    toggle();
+                }, 500);
             } else if (currentQuestionId > this.question.id) {
                 alert('You have already answered that question.')
             } else {
                 alert('You cannot answer that question yet!');
             }
-        }
+        };
         
         $scope.toggleDetails = function () {
             console.log('inside toggle details');
@@ -204,23 +207,49 @@ angular.module("MEANies.controllers", [])
         var angularQ = [];
         var nodeQ = [];
         var id = 0;
+        
                       
         var bossQuestions = BossQuestion.query(function() {
              for (var i = 0; i < bossQuestions.length; i++) {
                                 
-                if (bossQuestions[i].category === "Mongo") {
-                    
+                if (bossQuestions[i].category === "Mongo") {            
                     (mongoQ).push(bossQuestions[i]);
-                    $scope.mongo = mongoQ;       
-                    
-                    $scope.wholequestion = mongoQ[0];
+                    $scope.mongo = mongoQ;                    
+                    $scope.mongoquestion = mongoQ[0];
                         
                         $scope.query = function () {
                             var answer = prompt("What'll it be pardner?");
+                            if (answer.toLowerCase() === ($scope.mongoquestion.answer).toLowerCase()) {                              
+                                var user = User.me(function(user) {                                  
+                                    var updateUser = function() {
+                                        user.progress = 0//added
+                                        user.bossProgress = 1;//adding boss/board progress fn
+                                        user.$update(function(success) {
 
-                            if (answer.toLowerCase() === ($scope.wholequestion.answer).toLowerCase()) {
-
-                                
+                                                });
+                                            };
+                                            updateUser();
+                                        });
+                                alert("good job!");
+                                console.log($scope.mongoquestion);
+                                id++;
+                                $scope.mongoquestion = mongoQ[id];
+                                    if (id === 3) {
+                                        window.location.assign('/board');
+                                    }                             
+                            } else {
+                                console.log("WRONG!!!")
+                                alert("You have brought shame on your family. try again")
+                            }
+                        };                  
+                    } else if (bossQuestions[i].category === "Express") {
+                        (expressQ).push(bossQuestions[i]);
+                        $scope.express = expressQ;
+                        $scope.expressquestion = expressQ[0];
+                        
+                        $scope.query = function () {
+                            var answer = prompt("What'll it be pardner?");
+                            if (answer.toLowerCase() === ($scope.expressquestion.answer).toLowerCase()) {                           
                                 var user = User.me(function(user) {
                                     
                                     var updateUser = function() {
@@ -231,49 +260,87 @@ angular.module("MEANies.controllers", [])
                                                 });
                                             };
                                             updateUser();
-
                                         });
-
                                 alert("good job!");
-                                console.log($scope.wholequestion);
+                                console.log($scope.expressquestion);
                                 id++;
-                                $scope.wholequestion = mongoQ[id];
+                                $scope.expressquestion = expressQ[id];
                                     if (id === 3) {
                                         window.location.assign('/board');
-                                    }
-    
-                                
+                                    }                            
+                            } else {
+                                console.log("WRONG!!!")
+                                alert("You have brought shame on your family. try again")
+                            }
+                        };                   
+                    } else if (bossQuestions[i].category === "Angular") {
+                        (angularQ).push(bossQuestions[i]);
+                        $scope.angular = angularQ;
+                        $scope.angularquestion = angularQ[0];
+                        
+                        $scope.query = function () {
+                            var answer = prompt("What'll it be pardner?");
+                            if (answer.toLowerCase() === ($scope.angularquestion.answer).toLowerCase()) {                              
+                                var user = User.me(function(user) {
+                                    
+                                    var updateUser = function() {
+                                        user.progress = 0//added
+                                        user.bossProgress = 1;//adding boss/board progress fn
+                                        user.$update(function(success) {
+
+                                                });
+                                            };
+                                            updateUser();
+                                        });
+                                alert("good job!");
+                                console.log($scope.angularquestion);
+                                id++;
+                                $scope.angularquestion = angularQ[id];
+                                    if (id === 3) {
+                                        window.location.assign('/board');
+                                    }                
                             } else {
                                 console.log("WRONG!!!")
                                 alert("You have brought shame on your family. try again")
                             }
                         };
-                            
-                    } else if (bossQuestions[i].category === "Express") {
-                        (expressQ).push(bossQuestions[i]);
-                        $scope.express = expressQ;
-                    } else if (bossQuestions[i].category === "Angular") {
-                        (angularQ).push(bossQuestions[i]);
-                        $scope.angular = angularQ;
                     } else if (bossQuestions[i].category === "Node") {
                         (nodeQ).push(bossQuestions[i]);
                         $scope.node = nodeQ;
-                    }
+                        $scope.nodequestion = nodeQ[0];
+                        
+                        $scope.query = function () {
+                            var answer = prompt("What'll it be pardner?");
+                            if (answer.toLowerCase() === ($scope.nodequestion.answer).toLowerCase()) {                         
+                                var user = User.me(function(user) {
+                                    
+                                    var updateUser = function() {
+                                        user.progress = 0//added
+                                        user.bossProgress = 1;//adding boss/board progress fn
+                                        user.$update(function(success) {
 
-                    
+                                                });
+                                            };
+                                            updateUser();
+                                        });
+
+                                alert("good job!");
+                                console.log($scope.nodequestion);
+                                id++;
+                                $scope.nodequestion = nodeQ[id];
+                                    if (id === 3) {
+                                        window.location.assign('/board');
+                                    }                        
+                            } else {
+                                console.log("WRONG!!!")
+                                alert("You have brought shame on your family. try again")
+                            }
+                        };
+                    }                 
                 };
-                    
-                    bossQuestions;   
-            });
-         
-                            
+            //     bossQuestions;                   
+            });                       
     }])
-
-
-
-    //     }
-       
-    // }])
     .controller("WinnerController", ["$scope", "UserService", function ($scope, UserService) {
         UserService.me().then(function(me) {
             console.log(me.id);

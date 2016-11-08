@@ -15,6 +15,11 @@ WHAT IS DONE:
 -header
  - After question is answered, modify answered div to indicate completion (gray-out, add check mark, etc.)
 winner html
+ - USERS:
+    - Must get User Progress
+
+ - BOSS FIGHT ENCOUNTER
+     - Redirect after success back to game board
 
 WHAT NEEDS DOIN:
 
@@ -23,11 +28,7 @@ big boss design/execution and after victory redirect to winner.html
 board/question layout
 
 
- - USERS:
-    - Must get User Progress
 
- - BOSS FIGHT ENCOUNTER
-     - Redirect after success back to game board
 
 
 WISHLIST:

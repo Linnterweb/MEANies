@@ -1,11 +1,11 @@
 angular.module("MEANies.controllers", [])
-    .controller("WecomeController", ["$scope", "$location", function ($scope, $location) {
-        //  SEOService.setSEO({
-        //      title: "Caterpillars | home",
-        //      //image: "http://" + $location.host() + "/images/tree-31581_960_720.png",
-        //      description: "For fun and profit!",
-        //      url: $location.absUrl()
-        //  });   
+    .controller("WecomeController", ["$scope", "$location", "SEOService", function ($scope, $location, SEOService) {
+         SEOService.setSEO({
+             title: "MEANies | home",
+             image: "http://" + $location.host() + "/images/mario.ico",
+             description: "For fun and profit!",
+             url: $location.absUrl()
+         });   
     }])
     
     .controller('BoardController', ['$scope', '$location', 'Question', '$routeParams', 'User', 'UserService', function ($scope, $location, Question, $routeParams, User, UserService) {

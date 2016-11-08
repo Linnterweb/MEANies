@@ -75,6 +75,7 @@ angular.module('MEANies.services', [])
         $rootScope.seo = {};
         for (var prop in seoObj) {
             $rootScope.seo[prop] = seoObj[prop];
-        }
-    }
+        };
+    };
 }]);
+

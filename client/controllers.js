@@ -1,58 +1,64 @@
 angular.module("MEANies.controllers", [])
-    .controller("WecomeController", ["$scope", "$location", function ($scope, $location) {
-        //  SEOService.setSEO({
-        //      title: "Caterpillars | home",
-        //      //image: "http://" + $location.host() + "/images/tree-31581_960_720.png",
-        //      description: "For fun and profit!",
-        //      url: $location.absUrl()
-        //  });   
+    .controller("WecomeController", ["$scope", "$location", "SEOService", function ($scope, $location, SEOService) {
+         SEOService.setSEO({
+             title: "MEANies | home",
+             image: "http://" + $location.host() + "/images/mario.ico",
+             description: "For fun and profit!",
+             url: $location.absUrl()
+         });   
     }])
     
     .controller('BoardController', ['$scope', '$location', 'Question', '$routeParams', 'User', 'UserService', function ($scope, $location, Question, $routeParams, User, UserService) {
         // $scope.detailMode = false; // start off NOT showing details anywhere on the page
         $scope.showingDetails = false;
-        
+        var bossProgress = 0;
         var currentQuestionId = 1;
         var pizza = User.me(function (success) {
             console.log(success.username);
-            currentQuestionId = pizza.progress
+            currentQuestionId = pizza.progress;
+            bossProgress = pizza.boss_progress
+            console.log(bossProgress)
             console.log(currentQuestionId);
             $scope.username = pizza.username;
             $scope.progress = pizza.progress;
             var userProgress = Question.get({ id: (pizza.progress - 1)}, function (question) {
                 var percentLeft = question.Xcoord;
                 var percentTop = question.Ycoord;
-                    $('.mario')
-                    .animate({
-                        top: percentTop + '%',
-                        left: percentLeft + '%'
-                    });
+                $('.mario').animate({
+                    top: percentTop + '%',
+                    left: percentLeft + '%'
                 });
+            });
         });
 
-        
         $scope.questions = Question.query();
 
         $scope.circleClicked = function($event) {
-           
-            
+                       
             if (currentQuestionId === this.question.id) {
                 var target = $event.currentTarget;
-
                 var position = $(target).position();
                 var percentLeft = position.left / $('#counter').width() * 100;
                 var percentTop = position.top / $('#counter').height() * 100;
                 console.log(position);
 
-                $('.mario')
-                .animate({
-                    top: percentTop + '%',
-                    left: percentLeft + '%'
-                });
-                var toggle = $scope.toggleDetails.bind(this);
-                setTimeout(function() {
-                    toggle();
-                }, 500);
+
+                // $('.mario')//animate happens inside if else statements
+                // .animate({
+                //     top: percentTop + '%',
+                //     left: percentLeft + '%'
+                // });
+                if (((currentQuestionId - 1) % 3) === 0 && currentQuestionId !== bossProgress) {
+                    alert("Stand and fight, weakling!  ...by clicking on the door..")
+                    //you have to fight the boss before you can move
+                    $scope.showingDetails = false;
+                } else {
+                    $('.mario').animate({
+                        top: percentTop + '%',
+                        left: percentLeft + '%'
+                    });
+                };
+
             } else if (currentQuestionId > this.question.id) {
                 alert('You have already answered that question.')
             } else {
@@ -82,24 +88,19 @@ angular.module("MEANies.controllers", [])
                 console.log(question.answer);
                 console.log($location.search());
 
-
                 $scope.query = function () {
                     var answer = prompt("What'll it be pardner?");
 
                     if (answer.toLowerCase() === (question.answer).toLowerCase()) {
 
-                    var user = User.me(function(user) {
-                    // $scope.user = User.me();
-
-                    var updateUser = function() {
-                        user.progress = 1;//added
-                        user.bossProgress = 0;//adding boss/board progress fn
-                        user.$update(function(success) {
-
+                        var user = User.me(function(user) {
+                            var updateUser = function() {
+                                user.progress = 1;//added
+                                user.bossProgress = 0;//adding boss/board progress fn
+                                user.$update(function(success) {
                                 });
                             };
                             updateUser();
-
                         });
                         alert("good job!");
                         // var newId = parseInt($routeParams.id) + 1
@@ -113,8 +114,7 @@ angular.module("MEANies.controllers", [])
                     }
                 };
             });
-        }
-    
+        };
     }])
 
 
@@ -214,13 +214,17 @@ angular.module("MEANies.controllers", [])
                                 
                 if (bossQuestions[i].category === "Mongo") {            
                     (mongoQ).push(bossQuestions[i]);
-                    $scope.mongo = mongoQ;                    
+
+                    $scope.mongo = mongoQ;       
+
                     $scope.mongoquestion = mongoQ[0];
                         
                         $scope.query = function () {
                             var answer = prompt("What'll it be pardner?");
+
                             if (answer.toLowerCase() === ($scope.mongoquestion.answer).toLowerCase()) {                              
                                 var user = User.me(function(user) {                                  
+
                                     var updateUser = function() {
                                         user.progress = 0//added
                                         user.bossProgress = 1;//adding boss/board progress fn
@@ -245,6 +249,7 @@ angular.module("MEANies.controllers", [])
                     } else if (bossQuestions[i].category === "Express") {
                         (expressQ).push(bossQuestions[i]);
                         $scope.express = expressQ;
+
                         $scope.expressquestion = expressQ[0];
                         
                         $scope.query = function () {
@@ -273,6 +278,7 @@ angular.module("MEANies.controllers", [])
                                 alert("You have brought shame on your family. try again")
                             }
                         };                   
+
                     } else if (bossQuestions[i].category === "Angular") {
                         (angularQ).push(bossQuestions[i]);
                         $scope.angular = angularQ;

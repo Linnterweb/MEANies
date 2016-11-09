@@ -46,8 +46,8 @@
                         <img class="attacktwo dot" ng-src="{{ question.imageurl }}">
                     </div>
                 </div>
-                <div id="door" ng-repeat="door in doors" ng-style="{ 'left': door.Xcoord + '%', 'top': door.Ycoord + '%' }" ng-click="circleClicked($event)">
-                    <a ng-href="{{ door.href }}"><img ng-src="{{ door.imageurl }}"></a>
+                <div id="door" ng-repeat="door in doors" ng-style="{ 'left': door.Xcoord + '%', 'top': door.Ycoord + '%' }" ng-click="doorClicked($event)">
+                    <img ng-src="{{ door.imageurl }}">
                 </div>        
             </div>
         </div>

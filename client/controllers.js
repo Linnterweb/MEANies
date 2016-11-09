@@ -215,44 +215,43 @@ angular.module("MEANies.controllers", [])
 
         var mongoQ = [];
         var id = 0;
-                            
+
         var bossQuestions = BossQuestion.query(function() {
              for (var i = 0; i < bossQuestions.length; i++) {
                                 
                 if (bossQuestions[i].category === "Mongo") {            
                     (mongoQ).push(bossQuestions[i]);
-
-                    $scope.mongo = mongoQ;       
-
+                    //$scope.mongo = mongoQ;       
                     $scope.mongoquestion = mongoQ[0];
                         
-                        $scope.query = function () {
-                            var answer = prompt("What'll it be pardner?");
+                    $scope.query = function () {
+                        var answer = prompt("What'll it be pardner?");
 
-                            if (answer.toLowerCase() === ($scope.mongoquestion.answer).toLowerCase()) {                              
-                                var user = User.me(function(user) {                                  
 
-                                    var updateUser = function() {
-                                        user.progress = 0//added
-                                        user.bossProgress = 1;//adding boss/board progress fn
-                                        user.$update(function(success) {
+                        if (answer.toLowerCase() === ($scope.mongoquestion.answer).toLowerCase()) {                              
+                            var user = User.me(function(user) {                                  
+                                var updateUser = function() {
+                                    user.progress = 0//added
+                                    user.bossProgress = 1;//adding boss/board progress fn
+                                    user.$update(function(success) {});
+                                };
+                                updateUser();
+                            });
+                            alert("good job!");
+                            console.log($scope.mongoquestion);
+                            id++;
+                            $scope.mongoquestion = mongoQ[id];
+                            if (id === 3) {
+                                window.location.assign('/board');
+                            }                             
+                        } else {
+                            console.log("WRONG!!!")
+                            alert("You have brought shame on your family. try again")
+                        }
+                        };                  
+                   
 
-                                                });
-                                            };
-                                            updateUser();
-                                        });
-                                alert("good job!");
-                                console.log($scope.mongoquestion);
-                                id++;
-                                $scope.mongoquestion = mongoQ[id];
-                                    if (id === 3) {
-                                        window.location.assign('/board');
-                                    }                             
-                            } else {
-                                console.log("WRONG!!!")
-                                alert("You have brought shame on your family. try again")
-                            }
-                        }; 
+                         
                     };
                 };                 
             });         
@@ -267,6 +266,7 @@ angular.module("MEANies.controllers", [])
                 for (var i = 0; i < bossQuestions.length; i++)       
                   
                      if (bossQuestions[i].category === "Express") {
+
                         (expressQ).push(bossQuestions[i]);
                         $scope.express = expressQ;
 
@@ -403,10 +403,10 @@ angular.module("MEANies.controllers", [])
                 if (bossQuestions[i].category === "Boss") {            
                     (bossQ).push(bossQuestions[i]);
                     $scope.boss = bossQ;
+                    $scope.bossQ = bossQ[0];
                     $scope.query = function () {
-                        var answer = prompt("What'll it be pardner?");
-                        $scope.bossQ = bossQ[0];
-                        if (answer.toLowerCase() === ($scope.boss.answer).toLowerCase()) {                              
+                        var answer = prompt("What'll it be pardner?");   
+                        if (answer.toLowerCase() === ($scope.bossQ.answer).toLowerCase()) {                              
                             var user = User.me(function(user) {                                  
                                 var updateUser = function() {
                                     user.progress = 0
@@ -416,10 +416,19 @@ angular.module("MEANies.controllers", [])
                                 updateUser();
                             });            
                             alert("great work killer!");
-                            console.log(bossQ);
                             id++;
-                            $scope.bossQ = bossQ[id];            
-                
+                            $scope.bossQ = bossQ[id];    
+                            if (id === 3) {
+                                var user = User.me(function(user) {                                  
+                                    var updateUser = function() {
+                                        user.progress = -12
+                                        user.bossProgress = -15;
+                                        user.$update(function(success) {});
+                                    };
+                                updateUser();
+                                window.location.assign('/winner');
+                                });
+                            };             
                         };
                     };
                 };

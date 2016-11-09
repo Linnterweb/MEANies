@@ -43,20 +43,16 @@ angular.module("MEANies.controllers", [])
                 var percentTop = position.top / $('#counter').height() * 100;
                 console.log(position);
 
-                $('.mario')
-                 .animate({
-                     top: percentTop + '%',
-                     left: percentLeft + '%'
-                 });
-                 var toggle = $scope.toggleDetails.bind(this);
-                 setTimeout(function() {
-                     toggle();
-                 }, 500);
-                // $('.mario')//animate happens inside if else statements
-                // .animate({
-                //     top: percentTop + '%',
-                //     left: percentLeft + '%'
-                // });
+                // $('.mario')
+                //  .animate({
+                //      top: percentTop + '%',
+                //      left: percentLeft + '%'
+                //  });
+                //  var toggle = $scope.toggleDetails.bind(this);
+                //  setTimeout(function() {
+                //      toggle();
+                //  }, 500);
+              
                 if (((currentQuestionId - 1) % 3) === 0 && currentQuestionId !== bossProgress) {
                     alert("Stand and fight, weakling!  ...by clicking on the door..")
                     //you have to fight the boss before you can move
@@ -66,6 +62,10 @@ angular.module("MEANies.controllers", [])
                         top: percentTop + '%',
                         left: percentLeft + '%'
                     });
+                    var toggle = $scope.toggleDetails.bind(this);
+                    setTimeout(function() {
+                        toggle();
+                    }, 500);
                 };
 
             } else if (currentQuestionId > this.question.id) {

@@ -34,10 +34,10 @@
                 <img class="mario" src="images/mario.ico">
                 <img class="dot" id="dot" src="images/circle.png">
                 <img src="map/map3.1.png">
-                <a href="/mongo_boss"><button id="mongo" class="door"><img src="/images/Door.gif"></button></a>
+                <!--<a href="/mongo_boss"><button id="mongo" class="door"><img src="/images/Door.gif"></button></a>
                 <a href="/express_boss"><button id="express" class="door"><img src="/images/Door.gif"></button></a>
                 <a href="/angular_boss"><button id="angular" class="door"><img src="/images/Door.gif"></button></a>
-                <a href="/node_boss"><button id="node" class="door"><img src="/images/Door.gif"></button></a>
+                <a href="/node_boss"><button id="node" class="door"><img src="/images/Door.gif"></button></a>-->
             </div>
             <div>
                 <div ng-repeat="question in questions">
@@ -45,6 +45,9 @@
                     <div id="{{ question.id }}" class="attacktwo dot" ng-style="{ 'left': question.Xcoord + '%', 'top': question.Ycoord + '%' }" ng-click="circleClicked($event)">
                         <img class="attacktwo dot" ng-src="{{ question.imageurl }}">
                     </div>
+                </div>
+                <div id="door" ng-repeat="door in doors" ng-style="{ 'left': door.Xcoord + '%', 'top': door.Ycoord + '%' }" ng-click="circleClicked($event)">
+                    <a ng-href="{{ door.href }}"><img ng-src="{{ door.imageurl }}"></a>
                 </div>        
             </div>
         </div>

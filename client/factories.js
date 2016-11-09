@@ -24,3 +24,8 @@ angular.module('MEANies.factories', [])
         'update': { method: 'PUT' }
     });
 }])
+.factory('BossDoor', ['$resource', function($resource) {
+    return $resource('http://localhost:3000/api/doors/:id', { id: '@id' }, {
+        'update': { method: 'PUT' }
+    });
+}])

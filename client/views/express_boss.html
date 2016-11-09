@@ -1,11 +1,25 @@
-<h1>Grr. Argh. A giant EXPRESS attacks you.</h1>
-
-<div ng-repeat="question in express">
-    <h4>{{ question.question }}</h4>
-        <ol type="A">
-            <li>{{ question.A }}</li>
-            <li>{{ question.B }}</li>
-            <li>{{ question.C }}</li>
-            <li>{{ question.D }}</li>
-        </ol>
-</div>
+<div id="bossbackground">
+    <h1 id="title">Rawr. A giant MONGO attacks you.</h1>
+        <!--<div id="bossbox">-->
+        <!--<div class="attacktwo" ng-repeat="question in mongo" ng-click="toggleDetails()">-->
+                        <!--<h1>{{ question.question }}</h1>-->
+        
+    
+        <!--<div class="newbox" ng-show="showingDetails" ng-click="toggleDetails()">-->
+            <div>           
+                <!--<h4 class="battle">{{ question.question }}</h4>-->
+                <div class="inquiry">
+                    <!--<div ng-mouseover="scroll()"></div>-->
+                    <h3>{{ expressquestion.question }}</h3>                  
+                <ol type="A">
+                    <li>{{ expressquestion.A }}</li>
+                    <li>{{ expressquestion.B }}</li>
+                    <li>{{ expressquestion.C }}</li>
+                    <li>{{ expressquestion.D }}</li>
+                </ol>
+                <div class="question" ng-mouseover="query()">HOVER TO ATTACK</div>
+                </div>
+                <div id="mongomon">
+                <img src="./images/angrycpu1.jpeg">
+                </div>
+            </div>

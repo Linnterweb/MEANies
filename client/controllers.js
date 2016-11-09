@@ -8,8 +8,9 @@ angular.module("MEANies.controllers", [])
         //  });   
     }])
     
-    .controller('BoardController', ['$scope', '$location', 'Question', '$routeParams', 'User', 'UserService', function ($scope, $location, Question, $routeParams, User, UserService) {
+    .controller('BoardController', ['$scope', '$location', 'Question', 'BossDoor', '$routeParams', 'User', 'UserService', function ($scope, $location, Question, BossDoor, $routeParams, User, UserService) {
         // $scope.detailMode = false; // start off NOT showing details anywhere on the page
+        $scope.doors = BossDoor.query();
         $scope.showingDetails = false;
         var bossProgress = 0;
         var currentQuestionId = 1;
@@ -24,7 +25,7 @@ angular.module("MEANies.controllers", [])
             var userProgress = Question.get({ id: (pizza.progress - 1)}, function (question) {
                 var percentLeft = question.Xcoord;
                 var percentTop = question.Ycoord;
-                $('.mario').animate({
+                $('.mario').css({
                     top: percentTop + '%',
                     left: percentLeft + '%'
                 });
@@ -254,8 +255,6 @@ angular.module("MEANies.controllers", [])
                     } else if (bossQuestions[i].category === "Express") {
                         (expressQ).push(bossQuestions[i]);
                         $scope.express = expressQ;
-                        $scope.wholequestion = expressQ[0];
-                       // console.log($scope.wholequestion)
                     } else if (bossQuestions[i].category === "Angular") {
                         (angularQ).push(bossQuestions[i]);
                         $scope.angular = angularQ;

@@ -10,7 +10,7 @@
 .mario {
     position: absolute;
     top: 68%;
-    left: 13.75%;
+    left: 7%;
     height: 20px;
     max-height: 4%;
     z-index: 2;
@@ -30,8 +30,8 @@
 
 #dot {
     position:absolute;
-    left:33.5%;
-    top:42.5%;
+    left:14%;
+    top:73%;
     height: 15px;
     max-height: 2%;
     max-width: 2%;
@@ -254,13 +254,13 @@ h4 {
 }
 
 .navbar {
-    margin-top: 15px;
+    /*margin-top: 15px;*/
     background-color: lightgrey;
 }
 
 .navbar .nav {
     float: right;
-    margin-top: 1%;
+    margin-top: .3%;
 }
 
 

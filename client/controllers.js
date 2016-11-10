@@ -43,12 +43,7 @@ angular.module("MEANies.controllers", [])
                 var percentTop = position.top / $('#counter').height() * 100;
                 console.log(position);
 
-                
-                // $('.mario')//animate happens inside if else statements
-                // .animate({
-                //     top: percentTop + '%',
-                //     left: percentLeft + '%'
-                // });
+
                 if (((currentQuestionId - 1) % 3) === 0 && currentQuestionId !== bossProgress) {
                     alert("Stand and fight, weakling!  ...by clicking on the door..")
                     //you have to fight the boss before you can move
@@ -67,6 +62,50 @@ angular.module("MEANies.controllers", [])
 
             } else if (currentQuestionId > this.question.id) {
                 alert('You have already answered that question.')
+            } else {
+                alert('You cannot answer that question yet!');
+            }
+        };
+
+        $scope.doorClicked = function($event) {
+                       
+            if (bossProgress === this.door.doorid && ((bossProgress + 3) === currentQuestionId)) {
+                window.location.assign(this.door.href);
+                var target = $event.currentTarget;
+                var position = $(target).position();
+                var percentLeft = position.left / $('#counter').width() * 100;
+                var percentTop = position.top / $('#counter').height() * 100;
+                console.log(position);
+
+                // $('.mario')
+                //  .animate({
+                //      top: percentTop + '%',
+                //      left: percentLeft + '%'
+                //  });
+                //  var toggle = $scope.toggleDetails.bind(this);
+                //  setTimeout(function() {
+                //      toggle();
+                //  }, 500);
+              
+                // if (((currentQuestionId - 1) % 3) === 0 && currentQuestionId !== bossProgress) {
+                //     alert("Stand and fight, weakling!  ...by clicking on the door..")
+                //     //you have to fight the boss before you can move
+                //     $scope.showingDetails = false;
+                // } else {
+                //     $('.mario').animate({
+                //         top: percentTop + '%',
+                //         left: percentLeft + '%'
+                //     });
+                //     var toggle = $scope.toggleDetails.bind(this);
+                //     setTimeout(function() {
+                //         toggle();
+                //     }, 500);
+                // };
+
+            } else if (bossProgress > this.door.doorid) {
+                alert('You have already answered that question.')
+            } else if (bossProgress === currentQuestionId && currentQuestionId === 13) {
+                window.location.assign('/big_boss');
             } else {
                 alert('You cannot answer that question yet!');
             }

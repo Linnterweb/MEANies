@@ -1,6 +1,6 @@
 
 <script src="script.js"></script>
-<div class="container-fluid">
+<div id="navbar" class="container-fluid">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -15,7 +15,7 @@
                 <img src="images/mario.ico" class="mariologo" alt="" id="logo">
                 
                 <a href="/" class="navbar-brand"><img src="images/MEANiesNav.png"></a>
-                <h4>Welcome {{ username }}, Progress: {{ progress }}</h4>
+                <h4 id="userInfo">Welcome {{ username }}, Progress: {{ progress }}</h4>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
@@ -27,7 +27,7 @@
     </nav>
 </div>  
 
-<div class="container-fluid">
+<div id="cmon" class="container-fluid">
     <div id="box">
         <div>
             <div id="counter">

@@ -103,11 +103,11 @@ angular.module("MEANies.controllers", [])
                 // };
 
             } else if (bossProgress > this.door.doorid) {
-                alert('You have already answered that question.')
+                alert('You have already defeated that boss.')
             } else if (bossProgress === currentQuestionId && currentQuestionId === 13) {
                 window.location.assign('/big_boss');
             } else {
-                alert('You cannot answer that question yet!');
+                alert('You cannot fight that boss yet!');
             }
         };
         

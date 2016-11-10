@@ -305,3 +305,13 @@ h4 {
     height: 50px;
     width: 50px;
 }
+
+.boss {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+}

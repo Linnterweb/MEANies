@@ -43,15 +43,7 @@ angular.module("MEANies.controllers", [])
                 var percentTop = position.top / $('#counter').height() * 100;
                 console.log(position);
 
-                $('.mario')
-                 .animate({
-                     top: percentTop + '%',
-                     left: percentLeft + '%'
-                 });
-                 var toggle = $scope.toggleDetails.bind(this);
-                 setTimeout(function() {
-                     toggle();
-                 }, 500);
+                
                 // $('.mario')//animate happens inside if else statements
                 // .animate({
                 //     top: percentTop + '%',
@@ -62,10 +54,15 @@ angular.module("MEANies.controllers", [])
                     //you have to fight the boss before you can move
                     $scope.showingDetails = false;
                 } else {
-                    $('.mario').animate({
+                    $('.mario')
+                    .animate({
                         top: percentTop + '%',
                         left: percentLeft + '%'
                     });
+                    var toggle = $scope.toggleDetails.bind(this);
+                    setTimeout(function() {
+                        toggle();
+                    }, 500);
                 };
 
             } else if (currentQuestionId > this.question.id) {

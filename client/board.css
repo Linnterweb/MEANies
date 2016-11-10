@@ -102,6 +102,12 @@
     position: relative;
     left: 48%;
 }
+#questionbox {
+    border: white solid 2px;
+    border-width: 10%;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
 #bossbox {
     width: 1000px;
     height: 1200px;
@@ -119,8 +125,14 @@
 }
 #bosspic {
     display: inline-block;
-    margin-left: 38%;
+    margin-left: 42%;
     margin-top: 10%;
+    position: absolute;
+}
+#bigbosspic {
+    display: inline-block;
+    margin-left: 29%;
+    margin-top: 5%;
     position: absolute;
 }
 
@@ -143,4 +155,8 @@
     padding-right: 0px;
     position: relative;
     top: 55px;
+}
+#bigbosspic {
+    width: 44%;
+    height: 66%;
 }

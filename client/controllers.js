@@ -3,7 +3,7 @@ angular.module("MEANies.controllers", [])
          SEOService.setSEO({
              title: "MEANies | home",
              image: "http://" + $location.host() + "/images/mario.ico",
-             description: "For fun and profit!",
+             description: "For fun!",
              url: $location.absUrl()
          });   
     }])
@@ -147,7 +147,7 @@ angular.module("MEANies.controllers", [])
                             };
                             updateUser();
                         });
-                        alert("good job!");
+                        alert("Good job!");
                         // var newId = parseInt($routeParams.id) + 1
                         // window.location.assign("/questions/" + newId);
                         // toggleDetails();
@@ -156,7 +156,7 @@ angular.module("MEANies.controllers", [])
                         currentQuestionId++;
                     } else {
                         console.log("WRONG!!!")
-                        alert("You have brought shame on your family. try again")
+                        alert("You have brought shame on your family. Try again")
                     }
                 };
             });
@@ -186,12 +186,12 @@ angular.module("MEANies.controllers", [])
                         updateUser();
                         console.log(user.progress)
                     });
-                    console.log("good job!");
+                    console.log("Good Job!");
                     var newId = parseInt($routeParams.id) + 1
                     window.location.assign("/questions/" + newId);
                 } else {
                     console.log("WRONG!!!")
-                    alert("You have brought shame on your family. try again")
+                    alert("You have brought shame on your family. Try again")
                 };
             };
         });
@@ -273,7 +273,7 @@ angular.module("MEANies.controllers", [])
                                 };
                                 updateUser();
                             });
-                            alert("good job!");
+                            alert("Good job!");
                             console.log($scope.mongoquestion);
                             id++;
                             $scope.mongoquestion = mongoQ[id];
@@ -282,7 +282,7 @@ angular.module("MEANies.controllers", [])
                             }                             
                         } else {
                             console.log("WRONG!!!")
-                            alert("You have brought shame on your family. try again")
+                            alert("You have brought shame on your family. Try again")
                         }
                         };                  
                    
@@ -322,7 +322,7 @@ angular.module("MEANies.controllers", [])
                                             };
                                             updateUser();
                                         });
-                                alert("good job!");
+                                alert("Good job!");
                                 console.log($scope.expressquestion);
                                 id++;
                                 $scope.expressquestion = expressQ[id];
@@ -331,7 +331,7 @@ angular.module("MEANies.controllers", [])
                                     }                            
                             } else {
                                 console.log("WRONG!!!")
-                                alert("You have brought shame on your family. try again")
+                                alert("You have brought shame on your family. Try again")
                             }
                         };
                 };                  
@@ -364,7 +364,7 @@ angular.module("MEANies.controllers", [])
                                             };
                                             updateUser();
                                         });
-                                alert("good job!");
+                                alert("Good job!");
                                 console.log($scope.angularquestion);
                                 id++;
                                 $scope.angularquestion = angularQ[id];
@@ -373,7 +373,7 @@ angular.module("MEANies.controllers", [])
                                     }                
                             } else {
                                 console.log("WRONG!!!")
-                                alert("You have brought shame on your family. try again")
+                                alert("You have brought shame on your family. Try again")
                             }
                         };
                 };                           
@@ -408,7 +408,7 @@ angular.module("MEANies.controllers", [])
                                             updateUser();
                                         });
 
-                                alert("good job!");
+                                alert("Good job!");
                                 console.log($scope.nodequestion);
                                 id++;
                                 $scope.nodequestion = nodeQ[id];
@@ -417,18 +417,21 @@ angular.module("MEANies.controllers", [])
                                     }                        
                             } else {
                                 console.log("WRONG!!!")
-                                alert("You have brought shame on your family. try again")
+                                alert("You have brought shame on your family. Try again")
                             }
                         };
             }                                   
         });                       
     }])
 
-    .controller("WinnerController", ["$scope", "UserService", function ($scope, UserService) {
+    .controller("WinnerController", ["$scope", "UserService", "$timeout", function ($scope, UserService, $timeout) {
         UserService.me().then(function(me) {
             console.log(me.id);
             $scope.username = me.username;
         });
+        $timeout(function() {
+            window.location.assign("/welcome");
+            }, 12000);
     }])
 
     .controller("BigBossController", ["$scope", "BossQuestion", "User", "UserService", function($scope, BossQuestion, User, UserService) {
@@ -451,7 +454,7 @@ angular.module("MEANies.controllers", [])
                                 };
                                 updateUser();
                             });            
-                            alert("great work killer!");
+                            alert("Great work killer!");
                             id++;
                             $scope.bossQ = bossQ[id];    
                             if (id === 3) {

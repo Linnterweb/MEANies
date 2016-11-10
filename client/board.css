@@ -1,7 +1,7 @@
 #box {
-    width: auto;
-    height: auto;
-    border: red solid 4px;
+    width: 100%;
+    height: 100%;
+    border: tan solid 4px;
     background-color: tan;
     position: relative;
 }
@@ -19,8 +19,8 @@
     color: white;
     border-radius: 8px;
     position: absolute;
-    top: 25px;
-    left: 50px;
+    top: 10%;
+    left: 5%;
     z-index: 3;
 }
 .dialogue {

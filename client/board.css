@@ -137,6 +137,37 @@
     margin-top: 5%;
     position: absolute;
 }
+#mongobosspic {
+    width: 20%;
+    height: 25%;
+    display: inline-block;
+    margin-left: 41%;
+    margin-top: 5%;
+    position: absolute;
+}
+#expressbosspic {
+    width: 20%;
+    height: 25%;
+    display: inline-block;
+    margin-left: 39%;
+    margin-top: 5%;
+    position: absolute;
+}
+#angularbosspic {
+    width: 27%;
+    /*height: 25%;*/
+    display: inline-block;
+    margin-left: 39%;
+    margin-top: 5%;
+    position: absolute;
+}
+#nodebosspic {
+    width: 15%;  
+    display: inline-block;
+    margin-left: 43%;
+    margin-top: 5%;
+    position: absolute;
+}
 
 #navbar {
     position: fixed;

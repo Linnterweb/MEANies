@@ -21,7 +21,8 @@ angular.module("MEANies.controllers", [])
             console.log(bossProgress)
             console.log(currentQuestionId);
             $scope.username = pizza.username;
-            $scope.progress = pizza.progress;
+            //$scope.progress = pizza.progress;
+            $scope.progress = currentQuestionId
             var userProgress = Question.get({ id: (pizza.progress - 1)}, function (question) {
                 var percentLeft = question.Xcoord;
                 var percentTop = question.Ycoord;
@@ -146,6 +147,7 @@ angular.module("MEANies.controllers", [])
                                 });
                             };
                             updateUser();
+                            $scope.progress = currentQuestionId //- get user and reset $scope.progress
                         });
                         alert("Good job!");
                         // var newId = parseInt($routeParams.id) + 1

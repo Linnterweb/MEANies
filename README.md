@@ -36,6 +36,7 @@ skin options for user to create themselves
 upload photo
 cheat codes
 penalty for missing a question
+kid db
 
 
 END PRODUCT:

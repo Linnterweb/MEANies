@@ -15,6 +15,7 @@
 .newbox {
     width: 90%;
     height: 60%;
+    padding-top: 7%;
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     border-radius: 8px;
@@ -31,11 +32,13 @@
 }
 .battle {
     color: white;
+    padding-bottom: 5%;
     text-align: center;
 }
 .inquiry {
     color: white;
     border: white solid 3px;
+    padding-top: 4%;
     width: 70%;
     margin-left: auto;
     margin-right: auto;

@@ -29,6 +29,7 @@
     left: 5%;
     z-index: 3;
     font-family: Arcadepix;
+    text-shadow: 2px 2px 4px #000000;
 }
 .dialogue {
     text-align: center;

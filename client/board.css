@@ -46,7 +46,8 @@
     list-style-position: inside;
     /*text-align: center;*/
     position: relative;
-    left: 18%;
+    margin-left: 18%;
+    word-wrap: normal;
 }
 .answer {
     margin-left: auto;
@@ -97,10 +98,12 @@
     left: 300px;
 }
 .question {
-    /*margin-left: 30px;*/
     text-align: center;
     position: relative;
-    left: 48%;
+    margin-left: 48%;
+    /*height: 110%;*/
+    /*width: 300%;*/
+    /*min-width: 300%;*/
 }
 #questionbox {
     border: white solid 2px;

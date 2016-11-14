@@ -105,7 +105,7 @@ angular.module("MEANies.controllers", [])
 
             } else if (bossProgress > this.door.doorid) {
                 alert('You have already defeated that boss.')
-            } else if (bossProgress === currentQuestionId && currentQuestionId === 13) {
+            } else if (bossProgress === 13 && currentQuestionId === 14) {
                 window.location.assign('/big_boss');
             } else {
                 alert('You cannot fight that boss yet!');

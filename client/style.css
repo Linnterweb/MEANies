@@ -307,13 +307,16 @@ h4 {
     height: 100%;
     width: 100%;
     position: absolute;
-    opacity: 0.7;
+    opacity: 0.5;
+    top: 10%;
+    left: -180px;
+  background-repeat: no-repeat;
 }
-
+/*
 .fireworks img {
     height: 50px;
     width: 50px;
-}
+}*/
 
 .boss {
     padding-left: 0px;

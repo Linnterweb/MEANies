@@ -1,6 +1,10 @@
 @import url('http://getbootstrap.com/2.3.2/assets/css/bootstrap.css');
 @import url('http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css');
 @import url('http://fonts.googleapis.com/css?family=Roboto:400');
+@font-face {
+   font-family: Arcadepix;
+   src: url(/images/assets/arcadepix/ARCADEPI.TTF);
+}
 
 
 .question {
@@ -332,19 +336,32 @@ h4 {
 .credits {
   /*background: url("images/angrycpu1.jpeg");*/
   position: absolute;
-  left: 10%;
+  left: 25%;
   top: 0;
   height: 50%;
-  width: 80%;
+  width: 50%;
   animation: slideshow 15s linear;
 }
 @keyframes slideshow {
   0%    { top: 100%; }
-  100%  { top: -100%; }
+  100%  { top: -150%; }
 }
 
 .subcredit {
     font-size: 20px;
     list-style: none;
     font-weight: bold;
+}
+
+.win-header {
+    font-weight: bold;
+    text-align: left;
+    opacity: 0.99;
+    width: 25%;
+    left: 3%;
+    display: block;
+    margin-top: 8%;
+    position: absolute;
+    font-family: Arcadepix;
+    z-index: 4;
 }

@@ -41,6 +41,7 @@
     color: white;
     padding-bottom: 5%;
     text-align: center;
+    font-size: 200%;
 }
 .inquiry {
     color: white;
@@ -114,7 +115,8 @@
 .question {
     text-align: center;
     position: relative;
-    margin-left: 48%;
+    width: 150px;
+    margin-left: 45%;
     /*height: 110%;*/
     /*width: 300%;*/
     /*min-width: 300%;*/

@@ -476,7 +476,7 @@ angular.module("MEANies.controllers", [])
                             if (id === 3) {
                                 var user = User.me(function(user) {                                  
                                     var updateUser = function() {
-                                        user.progress = -12
+                                        user.progress = -13;
                                         user.bossProgress = -15;
                                         user.$update(function(success) {});
                                     };

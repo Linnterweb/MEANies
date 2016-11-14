@@ -47,9 +47,15 @@
     border: white solid 3px;
     padding-top: 4%;
     width: 70%;
+    margin-top: -53%;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
+    position: relative;
+}
+#expressquest {
+    margin-left: 5%;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .inquiry ol {
@@ -128,13 +134,14 @@
 }
 #bossbackground {
     position: relative;
-    background-color: black;
     height: 100%;
     width: 100%;
+    z-index: 0;
 }
 #title {
     color: white;
-    text-align: center;
+    padding-left: 5px;
+    position: absolute;
 }
 #bosspic {
     display: inline-block;
@@ -144,7 +151,7 @@
 }
 #bigbosspic {
     display: inline-block;
-    margin-left: 29%;
+    margin-left: 39%;
     margin-top: 5%;
     position: absolute;
 }
@@ -152,31 +159,32 @@
     width: 20%;
     height: 25%;
     display: inline-block;
-    margin-left: 41%;
-    margin-top: 5%;
+    margin-left: 61%;
+    margin-top: 25%;
     position: absolute;
 }
 #expressbosspic {
-    width: 20%;
-    height: 25%;
+    width: 40%;
+    height: 65%;
     display: inline-block;
-    margin-left: 39%;
-    margin-top: 5%;
+    margin-left: 58%;
+    margin-top: -15%;
     position: absolute;
+    z-index: 2;
 }
 #angularbosspic {
-    width: 27%;
+    width: 37%;
     /*height: 25%;*/
     display: inline-block;
-    margin-left: 39%;
-    margin-top: 5%;
+    margin-left: 52%;
+    margin-top: -11%;
     position: absolute;
 }
 #nodebosspic {
-    width: 15%;  
+    width: 35%;  
     display: inline-block;
-    margin-left: 43%;
-    margin-top: 5%;
+    margin-left: 51%;
+    margin-top: -8%;
     position: absolute;
 }
 
@@ -201,7 +209,11 @@
     top: 55px;
 }
 #bigbosspic {
-    width: 44%;
-    height: 66%;
+    width: 59%;
+    height: 76%;
+    display: inline-block;
+    margin-left: 29%;
+    margin-top: -2%;
+    position: absolute;
 }
 

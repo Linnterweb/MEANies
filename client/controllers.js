@@ -10,6 +10,9 @@ angular.module("MEANies.controllers", [])
     
     .controller('BoardController', ['$scope', '$location', 'Question', 'BossDoor', '$routeParams', 'User', 'UserService', function ($scope, $location, Question, BossDoor, $routeParams, User, UserService) {
         // $scope.detailMode = false; // start off NOT showing details anywhere on the page
+        //user must be logged in to get to the board
+        UserService.requireLogin(); 
+        
         $scope.doors = BossDoor.query();
         $scope.showingDetails = false;
         var bossProgress = 0;
@@ -105,7 +108,7 @@ angular.module("MEANies.controllers", [])
 
             } else if (bossProgress > this.door.doorid) {
                 alert('You have already defeated that boss.')
-            } else if (bossProgress === currentQuestionId && currentQuestionId === 13) {
+            } else if (bossProgress === 13 && currentQuestionId === 14) {
                 window.location.assign('/big_boss');
             } else {
                 alert('You cannot fight that boss yet!');
@@ -164,6 +167,16 @@ angular.module("MEANies.controllers", [])
             });
         };
     }])
+
+    //    $scope.logout = function() {
+    //             UserService.logout()
+    //             alert("You have successfully logged out!")
+    //             .then(function() {
+    //                 window.location.assign("/");
+    //             }, function(err) {
+    //                 console.log(err);
+    //             });
+    //         }
 
 
     .controller("QuestionsController", ["$scope", "Question", function ($scope, Question) {
@@ -225,6 +238,7 @@ angular.module("MEANies.controllers", [])
 
             $scope.logout = function() {
                 UserService.logout()
+                alert("You have successfully logged out!")
                 .then(function() {
                     redirect();
                 }, function(err) {
@@ -247,7 +261,7 @@ angular.module("MEANies.controllers", [])
                         window.location.assign("/");
                 });
             };
-        }])
+    }])
 
     .controller ("MongoBossController", ["$scope", "BossQuestion", "User", "UserService", function($scope, BossQuestion, User, UserService) {
 

@@ -310,7 +310,8 @@ h4 {
     opacity: 0.5;
     top: 10%;
     left: -180px;
-  background-repeat: no-repeat;
+    padding-right: 200%;
+  /*background-repeat: no-repeat;*/
 }
 /*
 .fireworks img {

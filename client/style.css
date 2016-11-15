@@ -7,9 +7,9 @@
 }
 
 
-.question {
+/*.question {
     width: 50px;
-}
+}*/
 
 .mario {
     position: absolute;
@@ -343,7 +343,8 @@ h4 {
     position: absolute;
     height: 100%;
     width: 100%;
-
+    font-family: Arcadepix;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 .credits {

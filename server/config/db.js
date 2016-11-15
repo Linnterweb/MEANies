@@ -1,12 +1,21 @@
 
 var mysql = require('mysql');
 
+// var pool = mysql.createPool({
+//    connectionLimit: 10,
+//    host: process.env.RDS_HOSTNAME,
+//    user: process.env.RDS_USER,
+//    password: process.env.RDS_PASSWORD,
+//    database: process.env.RDS_DATABASE
+// });
+// exports.pool = pool;
+
 var pool = mysql.createPool({
-   connectionLimit: 10,
-   host: process.env.RDS_HOSTNAME,
-   user: process.env.RDS_USER,
-   password: process.env.RDS_PASSWORD,
-   database: process.env.RDS_DATABASE
+    connectionlimit: 10,
+    host: "localhost",
+    user: "meaniesdev",
+    password: "slamjordan44",
+    database: "MEANies"
 });
 exports.pool = pool;
 

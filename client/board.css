@@ -41,22 +41,56 @@
     color: white;
     padding-bottom: 5%;
     text-align: center;
-    font-size: 200%;
+    /*font-size: 200%;*/
 }
 .inquiry {
     color: white;
     border: white solid 3px;
-    padding-top: 4%;
+    padding-top: 2%;
     width: 70%;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
-    position: relative;
+    position: absolute;
+    top: 8%;
 }
+.boardinquiry {
+   color: white;
+   border: white solid 3px;
+   padding-top: 4%;
+   width: 70%;
+   margin-left: auto;
+   margin-right: auto;
+   border-radius: 10px;
+   position: relative;
+}
+
+.boardinquiry ol {
+    list-style-position: inside;
+    /*text-align: center;*/
+    position: relative;
+    margin-left: 18%;
+    word-wrap: normal;
+    font-size: 1.5em;
+}
+
+.boardinquiry li {
+    line-height: 30px;
+}
+
 #expressquest {
     margin-left: 5%;
     background-color: rgba(0, 0, 0, 0.4);
-    margin-top: -53%;
+    /*margin-top: -53%;*/
+}
+
+#expressquest h3 {
+    padding-left: 5%;
+}
+
+#expressquest li {
+    font-size: 1.5em;
+    line-height: 30px;
 }
 
 .inquiry ol {
@@ -135,10 +169,41 @@
     position: relative;
 }
 #bossbackground {
-    position: relative;
+    position: absolute;
     height: 100%;
     width: 100%;
     z-index: 0;
+    
+}
+#mongobg {
+    background: url("./images/mongooffice.png") no-repeat center fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+#expressbg {
+    background: url("./images/expressoffice.png") no-repeat center fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+#angularbg {
+    background: url("./images/angularoffice.png") no-repeat center fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+#nodebg {
+    background: url("./images/nodeoffice.png") no-repeat center fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+#bigbossbg {
+    background: url("./images/bossoffice.png") no-repeat center fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
 }
 #title {
     color: white;
@@ -152,41 +217,41 @@
     position: absolute;
 }
 #bigbosspic {
-    display: inline-block;
-    margin-left: 39%;
-    margin-top: 5%;
+    width: 40%;
+    /*display: inline-block;*/
+    left: 50%;
+    top: 40%;
     position: absolute;
 }
 #mongobosspic {
     width: 20%;
-    height: 25%;
-    display: inline-block;
-    margin-left: 61%;
-    margin-top: 25%;
+    /*height: 25%;*/
+    /*display: inline-block;*/
+    left: 61%;
+    top: 40%;
     position: absolute;
 }
 #expressbosspic {
     width: 40%;
-    height: 65%;
-    display: inline-block;
-    margin-left: 58%;
-    margin-top: -15%;
+    /*height: 65%;*/
+    /*display: inline-block;*/
+    left: 61%;
+    top: 40%;
     position: absolute;
-    z-index: 2;
 }
 #angularbosspic {
-    width: 37%;
+    width: 20%;
     /*height: 25%;*/
-    display: inline-block;
-    margin-left: 52%;
-    margin-top: -11%;
+    /*display: inline-block;*/
+    left: 61%;
+    top: 40%;
     position: absolute;
 }
 #nodebosspic {
     width: 35%;  
-    display: inline-block;
-    margin-left: 51%;
-    margin-top: -8%;
+    /*display: inline-block;*/
+    left: 61%;
+    top: 40%;
     position: absolute;
 }
 
@@ -209,12 +274,4 @@
     padding-right: 0px;
     position: relative;
     top: 55px;
-}
-#bigbosspic {
-    width: 59%;
-    height: 76%;
-    display: inline-block;
-    margin-left: 29%;
-    margin-top: -2%;
-    position: absolute;
 }

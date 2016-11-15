@@ -447,7 +447,7 @@ angular.module("MEANies.controllers", [])
         });
         $timeout(function() {
             window.location.assign("/welcome");
-            }, 14800);
+            }, 14500);
     }])
 
     .controller("BigBossController", ["$scope", "BossQuestion", "User", "UserService", function($scope, BossQuestion, User, UserService) {

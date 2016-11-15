@@ -11,7 +11,7 @@ angular.module("MEANies.controllers", [])
     .controller('BoardController', ['$scope', '$location', 'Question', 'BossDoor', '$routeParams', 'User', 'UserService', function ($scope, $location, Question, BossDoor, $routeParams, User, UserService) {
         // $scope.detailMode = false; // start off NOT showing details anywhere on the page
         //user must be logged in to get to the board
-        UserService.requireLogin(); 
+        //UserService.requireLogin(); but this fn needs to be on the continue button on the login page, not here
         
         $scope.doors = BossDoor.query();
         $scope.showingDetails = false;
@@ -447,7 +447,7 @@ angular.module("MEANies.controllers", [])
         });
         $timeout(function() {
             window.location.assign("/welcome");
-            }, 14800);
+            }, 14500);
     }])
 
     .controller("BigBossController", ["$scope", "BossQuestion", "User", "UserService", function($scope, BossQuestion, User, UserService) {
@@ -476,7 +476,7 @@ angular.module("MEANies.controllers", [])
                             if (id === 3) {
                                 var user = User.me(function(user) {                                  
                                     var updateUser = function() {
-                                        user.progress = -12
+                                        user.progress = -13;
                                         user.bossProgress = -15;
                                         user.$update(function(success) {});
                                     };

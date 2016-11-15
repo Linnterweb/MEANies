@@ -272,13 +272,26 @@ h4 {
     margin-top: .3%;
 }
 
-.navbar-nav img {
+/*.navbar-nav img {
     height: 30px;
-}
-
+}*/
+/*
+.moveover {
+    margin-left: 10%;
+}*/
 
 .navbar-brand {
     padding: 0;
+}
+
+
+#loginNav {
+    height: 30px;
+}
+
+#logoutNav {
+    height: 27px;
+    margin-top: 4%;
 }
 
 /*NavBar Styling End*/
